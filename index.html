@@ -1,1542 +1,285 @@
 <!DOCTYPE html>
 <html lang="en-ZA">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Applications Engineer Portfolio</title>
-    
-    <!-- Google Fonts - Distinctive typography for professional tech aesthetic -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Lexend:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        /* ===================================
-           CSS VARIABLES - Design System
-           These make it easy to change colors across the entire site
-        =================================== */
-        :root {
-            /* Color Palette - Tech-forward with energy */
-            --color-primary: #00D9FF;        /* Bright cyan for tech feel */
-            --color-primary-dark: #00A8CC;
-            --color-secondary: #FF3366;      /* Vibrant accent */
-            --color-bg-dark: #0A0E27;        /* Deep navy background */
-            --color-bg-medium: #151B3B;
-            --color-bg-light: #1E2749;
-            --color-text-primary: #FFFFFF;
-            --color-text-secondary: #A0AEC0;
-            --color-border: #2D3748;
-            
-            /* Typography */
-            --font-display: 'Lexend', sans-serif;
-            --font-mono: 'JetBrains Mono', monospace;
-            
-            /* Spacing */
-            --spacing-xs: 0.5rem;
-            --spacing-sm: 1rem;
-            --spacing-md: 2rem;
-            --spacing-lg: 4rem;
-            --spacing-xl: 6rem;
-            
-            /* Effects */
-            --shadow-glow: 0 0 20px rgba(0, 217, 255, 0.3);
-            --shadow-card: 0 10px 40px rgba(0, 0, 0, 0.3);
-            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        /* ===================================
-           RESET & BASE STYLES
-        =================================== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px;
-        }
-        
-        body {
-            font-family: var(--font-display);
-            background-color: var(--color-bg-dark);
-            color: var(--color-text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-        
-        /* Animated background pattern */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                linear-gradient(135deg, transparent 25%, rgba(0, 217, 255, 0.03) 25%, rgba(0, 217, 255, 0.03) 50%, transparent 50%, transparent 75%, rgba(0, 217, 255, 0.03) 75%),
-                radial-gradient(ellipse at 50% 0%, rgba(0, 217, 255, 0.1) 0%, transparent 50%);
-            background-size: 80px 80px, 100% 400px;
-            z-index: -1;
-            animation: backgroundMove 20s linear infinite;
-        }
-        
-        @keyframes backgroundMove {
-            0% { background-position: 0 0, 50% 0%; }
-            100% { background-position: 80px 80px, 50% 100%; }
-        }
-        
-        /* ===================================
-           NAVIGATION BAR
-        =================================== */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(10, 14, 39, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 0;
-            border-bottom: 1px solid var(--color-border);
-            transition: var(--transition-smooth);
-        }
-        
-        nav.scrolled {
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        }
-        
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-family: var(--font-mono);
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--color-primary);
-            text-decoration: none;
-            letter-spacing: -0.05em;
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-        
-        .nav-links a {
-            color: var(--color-text-secondary);
-            text-decoration: none;
-            font-weight: 400;
-            font-size: 0.95rem;
-            transition: var(--transition-smooth);
-            position: relative;
-        }
-        
-        /* Animated underline effect on nav links */
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--color-primary);
-            transition: width 0.3s ease;
-        }
-        
-        .nav-links a:hover {
-            color: var(--color-primary);
-        }
-        
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-        
-        /* Mobile menu toggle button */
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            background: none;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .menu-toggle span {
-            width: 25px;
-            height: 3px;
-            background: var(--color-primary);
-            transition: var(--transition-smooth);
-        }
-        
-        /* ===================================
-           HERO SECTION
-        =================================== */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        /* Animated gradient orb effect */
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(255, 51, 102, 0.15) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: float 8s ease-in-out infinite;
-        }
-        
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -30%;
-            left: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(0, 217, 255, 0.15) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: float 10s ease-in-out infinite reverse;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(30px, -30px) scale(1.1); }
-        }
-        
-        .hero-content {
-            max-width: 900px;
-            text-align: center;
-            z-index: 1;
-            animation: fadeInUp 1s ease-out;
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .hero-label {
-            font-family: var(--font-mono);
-            font-size: 0.9rem;
-            color: var(--color-primary);
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s ease-out 0.2s backwards;
-        }
-        
-        .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 5rem);
-            font-weight: 700;
-            margin-bottom: 1rem;
-            line-height: 1.1;
-            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: fadeInUp 1s ease-out 0.4s backwards;
-        }
-        
-        .hero .title {
-            font-size: clamp(1.5rem, 3vw, 2rem);
-            color: var(--color-text-secondary);
-            margin-bottom: 1.5rem;
-            font-weight: 300;
-            animation: fadeInUp 1s ease-out 0.6s backwards;
-        }
-        
-        .hero .tagline {
-            font-size: 1.2rem;
-            color: var(--color-text-secondary);
-            margin-bottom: 2.5rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            animation: fadeInUp 1s ease-out 0.8s backwards;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-            color: var(--color-bg-dark);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
-            border-radius: 50px;
-            transition: var(--transition-smooth);
-            box-shadow: 0 4px 15px rgba(0, 217, 255, 0.3);
-            position: relative;
-            overflow: hidden;
-            animation: fadeInUp 1s ease-out 1s backwards;
-        }
-        
-        /* Button hover effect with shine animation */
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.5s;
-        }
-        
-        .cta-button:hover::before {
-            left: 100%;
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(0, 217, 255, 0.5);
-        }
-        
-        /* Scroll indicator */
-        .scroll-indicator {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: bounce 2s infinite;
-        }
-        
-        .scroll-indicator::before {
-            content: '↓';
-            font-size: 2rem;
-            color: var(--color-primary);
-        }
-        
-        @keyframes bounce {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(-10px); }
-        }
-        
-        /* ===================================
-           SECTION CONTAINER - Shared styles
-        =================================== */
-        section {
-            padding: var(--spacing-xl) 2rem;
-            position: relative;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: var(--spacing-lg);
-        }
-        
-        .section-label {
-            font-family: var(--font-mono);
-            font-size: 0.9rem;
-            color: var(--color-primary);
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            margin-bottom: 0.5rem;
-        }
-        
-        .section-title {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-        
-        .section-description {
-            font-size: 1.1rem;
-            color: var(--color-text-secondary);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        /* ===================================
-           ABOUT SECTION
-        =================================== */
-        .about {
-            background: linear-gradient(180deg, transparent 0%, rgba(255, 51, 102, 0.05) 100%);
-        }
-        
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-        
-        .about-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--color-text-secondary);
-        }
-        
-        .about-text p {
-            margin-bottom: 1.5rem;
-        }
-        
-        .highlight {
-            color: var(--color-primary);
-            font-weight: 600;
-        }
-        
-        .about-stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-        }
-        
-        .stat-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--color-border);
-            border-radius: 12px;
-            padding: 2rem;
-            text-align: center;
-            transition: var(--transition-smooth);
-        }
-        
-        .stat-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--color-primary);
-            box-shadow: var(--shadow-glow);
-        }
-        
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-        
-        .stat-label {
-            color: var(--color-text-secondary);
-            font-size: 0.95rem;
-        }
-        
-        /* ===================================
-           SKILLS SECTION
-        =================================== */
-        .skills {
-            background: linear-gradient(180deg, transparent 0%, rgba(0, 217, 255, 0.05) 100%);
-        }
-        
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .skill-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--color-border);
-            border-radius: 16px;
-            padding: 2rem;
-            transition: var(--transition-smooth);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        /* Animated gradient on hover */
-        .skill-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 217, 255, 0.1), transparent);
-            transition: left 0.5s;
-        }
-        
-        .skill-card:hover::before {
-            left: 100%;
-        }
-        
-        .skill-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--color-primary);
-            box-shadow: var(--shadow-card);
-        }
-        
-        .skill-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            box-shadow: var(--shadow-glow);
-        }
-        
-        .skill-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: var(--color-text-primary);
-        }
-        
-        .skill-list {
-            list-style: none;
-        }
-        
-        .skill-list li {
-            color: var(--color-text-secondary);
-            padding: 0.5rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .skill-list li:last-child {
-            border-bottom: none;
-        }
-        
-        .skill-list li::before {
-            content: '▹';
-            color: var(--color-primary);
-            font-weight: bold;
-        }
-        
-        /* ===================================
-           PROJECTS SECTION
-        =================================== */
-        .projects {
-            background: linear-gradient(180deg, transparent 0%, rgba(255, 51, 102, 0.05) 100%);
-        }
-        
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-        
-        .project-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--color-border);
-            border-radius: 16px;
-            overflow: hidden;
-            transition: var(--transition-smooth);
-            cursor: pointer;
-        }
-        
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-card);
-            border-color: var(--color-primary);
-        }
-        
-        .project-image {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, var(--color-bg-medium) 0%, var(--color-bg-light) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        /* Animated background pattern in project image */
-        .project-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, transparent 30%, rgba(0, 217, 255, 0.1) 50%, transparent 70%);
-            background-size: 200% 200%;
-            animation: shimmer 3s infinite;
-        }
-        
-        @keyframes shimmer {
-            0% { background-position: 0% 0%; }
-            50% { background-position: 100% 100%; }
-            100% { background-position: 0% 0%; }
-        }
-        
-        .project-content {
-            padding: 2rem;
-        }
-        
-        .project-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--color-text-primary);
-        }
-        
-        .project-description {
-            color: var(--color-text-secondary);
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-        
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        
-        .tag {
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            padding: 0.4rem 0.8rem;
-            background: rgba(0, 217, 255, 0.1);
-            color: var(--color-primary);
-            border: 1px solid rgba(0, 217, 255, 0.3);
-            border-radius: 20px;
-            transition: var(--transition-smooth);
-        }
-        
-        .project-card:hover .tag {
-            background: rgba(0, 217, 255, 0.2);
-            border-color: var(--color-primary);
-        }
-        
-        /* ===================================
-           CONTACT SECTION
-        =================================== */
-        .contact {
-            background: linear-gradient(180deg, transparent 0%, rgba(0, 217, 255, 0.05) 100%);
-        }
-        
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            margin-top: 3rem;
-        }
-        
-        .contact-info h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .contact-info p {
-            color: var(--color-text-secondary);
-            margin-bottom: 2rem;
-            line-height: 1.8;
-        }
-        
-        .contact-links {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-        
-        .contact-link {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--color-border);
-            border-radius: 12px;
-            color: var(--color-text-primary);
-            text-decoration: none;
-            transition: var(--transition-smooth);
-        }
-        
-        .contact-link:hover {
-            border-color: var(--color-primary);
-            background: rgba(0, 217, 255, 0.05);
-            transform: translateX(5px);
-        }
-        
-        .contact-icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            flex-shrink: 0;
-        }
-        
-        /* Contact Form */
-        .contact-form {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--color-border);
-            border-radius: 16px;
-            padding: 2.5rem;
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--color-text-primary);
-            font-weight: 500;
-        }
-        
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--color-border);
-            border-radius: 8px;
-            color: var(--color-text-primary);
-            font-family: var(--font-display);
-            font-size: 1rem;
-            transition: var(--transition-smooth);
-        }
-        
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--color-primary);
-            box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.1);
-        }
-        
-        .form-group textarea {
-            resize: vertical;
-            min-height: 150px;
-        }
-        
-        .error-message {
-            color: var(--color-secondary);
-            font-size: 0.85rem;
-            margin-top: 0.5rem;
-            display: none;
-        }
-        
-        .error-message.show {
-            display: block;
-        }
-        
-        .submit-button {
-            width: 100%;
-            padding: 1rem 2rem;
-            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-            color: var(--color-bg-dark);
-            border: none;
-            border-radius: 8px;
-            font-family: var(--font-display);
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition-smooth);
-            box-shadow: 0 4px 15px rgba(0, 217, 255, 0.3);
-        }
-        
-        .submit-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(0, 217, 255, 0.5);
-        }
-        
-        .submit-button:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
-        
-        .success-message {
-            background: rgba(0, 217, 255, 0.1);
-            border: 1px solid var(--color-primary);
-            border-radius: 8px;
-            padding: 1rem;
-            color: var(--color-primary);
-            text-align: center;
-            margin-top: 1rem;
-            display: none;
-        }
-        
-        .success-message.show {
-            display: block;
-        }
-        
-        /* ===================================
-           FOOTER
-        =================================== */
-        footer {
-            background: var(--color-bg-medium);
-            border-top: 1px solid var(--color-border);
-            padding: 2rem;
-            text-align: center;
-        }
-        
-        footer p {
-            color: var(--color-text-secondary);
-            font-size: 0.95rem;
-        }
-        
-        footer a {
-            color: var(--color-primary);
-            text-decoration: none;
-            transition: var(--transition-smooth);
-        }
-        
-        footer a:hover {
-            text-decoration: underline;
-        }
-        
-        /* ===================================
-           RESPONSIVE DESIGN - Mobile & Tablet
-        =================================== */
-        
-        /* Tablet (below 992px) */
-        @media (max-width: 992px) {
-            .nav-links {
-                gap: 1.5rem;
-            }
-            
-            .about-content,
-            .contact-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .projects-grid {
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            }
-        }
-        
-        /* Mobile (below 768px) */
-        @media (max-width: 768px) {
-            /* Mobile Navigation */
-            .menu-toggle {
-                display: flex;
-            }
-            
-            .nav-links {
-                position: fixed;
-                top: 70px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 70px);
-                background: rgba(10, 14, 39, 0.98);
-                backdrop-filter: blur(10px);
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                gap: 2rem;
-                transition: left 0.3s ease;
-            }
-            
-            .nav-links.active {
-                left: 0;
-            }
-            
-            .nav-links a {
-                font-size: 1.5rem;
-            }
-            
-            /* Sections */
-            section {
-                padding: var(--spacing-lg) 1.5rem;
-            }
-            
-            .hero {
-                padding: 1rem;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero .title {
-                font-size: 1.3rem;
-            }
-            
-            .hero .tagline {
-                font-size: 1rem;
-            }
-            
-            .about-stats {
-                grid-template-columns: 1fr;
-            }
-            
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-form {
-                padding: 1.5rem;
-            }
-        }
-        
-        /* Small Mobile (below 480px) */
-        @media (max-width: 480px) {
-            html {
-                font-size: 14px;
-            }
-            
-            .nav-container {
-                padding: 0 1rem;
-            }
-            
-            .cta-button {
-                padding: 0.8rem 2rem;
-                font-size: 1rem;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
-            
-            .stat-number {
-                font-size: 2.5rem;
-            }
-        }
-        
-        /* ===================================
-           UTILITY CLASSES
-        =================================== */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kamogelo Molekwa | Applications Engineer</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Lexend:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+--color-primary:#00D9FF;
+--color-secondary:#FF3366;
+--bg-dark:#0A0E27;
+--bg-medium:#151B3B;
+--bg-light:#1E2749;
+--text-primary:#fff;
+--text-secondary:#A0AEC0;
+--border:#2D3748;
+--font-display:'Lexend',sans-serif;
+--font-mono:'JetBrains Mono',monospace;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--font-display);background:var(--bg-dark);color:var(--text-primary);line-height:1.6}
+section{padding:6rem 2rem}
+.container{max-width:1200px;margin:auto}
+h1,h2,h3{margin-bottom:1rem}
+p{color:var(--text-secondary)}
+a{text-decoration:none;color:inherit}
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+background:rgba(10,14,39,.95);
+backdrop-filter:blur(10px);
+padding:1rem 0;
+z-index:1000;
+border-bottom:1px solid var(--border)
+}
+.nav-container{display:flex;justify-content:space-between;align-items:center;padding:0 2rem}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:var(--text-secondary)}
+.nav-links a:hover{color:var(--color-primary)}
+
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding-top:100px
+}
+.hero h1{
+font-size:3.5rem;
+background:linear-gradient(135deg,var(--color-primary),var(--color-secondary));
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent
+}
+.cta{display:inline-block;margin-top:2rem;padding:1rem 2rem;border-radius:50px;background:var(--color-primary);color:#000;font-weight:600}
+
+.terminal{
+background:#000;
+border-radius:12px;
+padding:2rem;
+font-family:var(--font-mono);
+color:#00ff88;
+margin-top:3rem
+}
+
+.timeline{border-left:2px solid var(--color-primary);padding-left:2rem}
+.timeline-item{margin-bottom:3rem}
+
+.card{
+background:var(--bg-medium);
+padding:2rem;
+border-radius:12px;
+border:1px solid var(--border)
+}
+
+.grid{display:grid;gap:2rem}
+.grid-3{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.grid-4{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+
+.tech-stack div{
+background:var(--bg-light);
+padding:1rem;
+text-align:center;
+border-radius:8px;
+border:1px solid var(--border);
+font-family:var(--font-mono)
+}
+
+footer{
+background:var(--bg-medium);
+padding:2rem;
+text-align:center;
+border-top:1px solid var(--border)
+}
+</style>
 </head>
 <body>
-    <!-- ===================================
-         NAVIGATION BAR
-         Fixed navigation with smooth scrolling links
-    =================================== -->
-    <nav id="navbar">
-        <div class="nav-container">
-            <!-- Logo/Brand -->
-            <a href="#hero" class="logo">&lt;/AE&gt;</a>
-            
-            <!-- Mobile Menu Toggle Button -->
-            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            
-            <!-- Navigation Links -->
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
-    
-    <!-- ===================================
-         HERO SECTION
-         Main landing section with name, title, and CTA
-    =================================== -->
-    <section id="hero" class="hero">
-        <div class="hero-content">
-            <div class="hero-label">Applications Engineer</div>
-            <h1>Kamogelo Molekwa</h1>
-            <p class="title">From Helpdesk to Applications Engineering</p>
-            <p class="tagline">
-                Transforming business processes through automation, innovation, and a passion for problem-solving
-            </p>
-            <a href="#contact" class="cta-button">Let's Connect</a>
-        </div>
-        <div class="scroll-indicator"></div>
-    </section>
-    
-    <!-- ===================================
-         ABOUT SECTION
-         Professional summary and key attributes
-    =================================== -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-label">Get to Know Me</div>
-                <h2 class="section-title">About Me</h2>
-            </div>
-            
-            <div class="about-content">
-                <div class="about-text fade-in">
-                    <p>
-                        My journey into IT began with curiosity and determination. From completing my first CompTIA A+ certification to becoming an <span class="highlight">Applications Engineer</span>, I've built my career on a foundation of continuous learning and hands-on problem-solving.
-                    </p>
-                    <p>
-                        What started as providing Tier 1 support at Nashua evolved into network engineering at Commercial ICT (Elvey), where I managed enterprise infrastructure and resolved critical Priority 1 incidents. Today, at <span class="highlight">Harambee Youth Employment Accelerator</span>, I design and develop business applications using <span class="highlight">Microsoft Power Platform</span>, automate workflows, and integrate complex systems that drive operational efficiency.
-                    </p>
-                    <p>
-                        As a <span class="highlight">self-starter and problem solver</span>, I thrive on turning business challenges into automated solutions. My <span class="highlight">analytical mindset</span> and deep IT expertise—from Active Directory to API integrations—enable me to bridge the gap between technical capabilities and <span class="highlight">client-focused outcomes</span>. Whether I'm debugging code, optimizing cloud infrastructure on Azure, or building WhatsApp chatbots, I'm driven by one goal: creating solutions that make a measurable impact.
-                    </p>
-                </div>
-                
-                <!-- Statistics/Highlights -->
-                <div class="about-stats fade-in">
-                    <div class="stat-card">
-                        <span class="stat-number">5+</span>
-                        <span class="stat-label">Years in IT</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-number">30+</span>
-                        <span class="stat-label">Daily P1 Tickets Resolved</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-number">100%</span>
-                        <span class="stat-label">SLA Compliance Focus</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-number">24/7</span>
-                        <span class="stat-label">Problem Solver</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- ===================================
-         SKILLS SECTION
-         Core technical and soft skills displayed in cards
-    =================================== -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-label">My Expertise</div>
-                <h2 class="section-title">Core Skills</h2>
-                <p class="section-description">
-                    A comprehensive toolkit combining technical prowess with essential soft skills
-                </p>
-            </div>
-            
-            <div class="skills-grid">
-                <!-- Technical Skills Card 1 -->
-                <div class="skill-card fade-in">
-                    <div class="skill-icon">💻</div>
-                    <h3>Programming & Development</h3>
-                    <ul class="skill-list">
-                        <li>Python, JavaScript, React</li>
-                        <li>Visual Basic, JSON, HTML</li>
-                        <li>SQL Database Management</li>
-                        <li>API Integration & Development</li>
-                    </ul>
-                </div>
-                
-                <!-- Technical Skills Card 2 -->
-                <div class="skill-card fade-in">
-                    <div class="skill-icon">⚙️</div>
-                    <h3>Microsoft Power Platform</h3>
-                    <ul class="skill-list">
-                        <li>Power Apps Development</li>
-                        <li>Power Automate Workflows</li>
-                        <li>Power BI Analytics</li>
-                        <li>SharePoint Integration</li>
-                    </ul>
-                </div>
-                
-                <!-- Technical Skills Card 3 -->
-                <div class="skill-card fade-in">
-                    <div class="skill-icon">🔧</div>
-                    <h3>Cloud & Infrastructure</h3>
-                    <ul class="skill-list">
-                        <li>Microsoft Azure (VMs, Resource Groups)</li>
-                        <li>Active Directory Administration</li>
-                        <li>Network Support (LAN/WAN)</li>
-                        <li>Linux, Windows, MacOS</li>
-                    </ul>
-                </div>
-                
-                <!-- Technical Skills Card 4 -->
-                <div class="skill-card fade-in">
-                    <div class="skill-icon">🛠️</div>
-                    <h3>Enterprise Tools & Automation</h3>
-                    <ul class="skill-list">
-                        <li>ITSM: Jira, ServiceNow, Freshservice</li>
-                        <li>Automation: Zapier, Power Automate</li>
-                        <li>CRM: Genesys Cloud CX Manager</li>
-                        <li>WordPress Admin & Development</li>
-                    </ul>
-                </div>
-                
-                <!-- Soft Skills Card 1 -->
-                <div class="skill-card fade-in">
-                    <div class="skill-icon">🎯</div>
-                    <h3>Problem Solving & Analysis</h3>
-                    <ul class="skill-list">
-                        <li>Critical Thinking & Root Cause Analysis</li>
-                        <li>Troubleshooting & Debugging</li>
-                        <li>Performance Optimization</li>
-                        <li>Security Vulnerability Resolution</li>
-                    </ul>
-                </div>
-                
-                <!-- Soft Skills Card 2 -->
-                <div class="skill-card fade-in">
-                    <div class="skill-icon">🤝</div>
-                    <h3>Collaboration & Leadership</h3>
-                    <ul class="skill-list">
-                        <li>Self-Starter & Initiative-Driven</li>
-                        <li>Customer Service Excellence</li>
-                        <li>Training & Knowledge Sharing</li>
-                        <li>Project Management (Jira, Miro)</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- ===================================
-         PROJECTS SECTION
-         Portfolio projects with interactive hover effects
-    =================================== -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-label">My Work</div>
-                <h2 class="section-title">Featured Projects</h2>
-                <p class="section-description">
-                    Real-world applications showcasing technical excellence and innovation
-                </p>
-            </div>
-            
-            <div class="projects-grid">
-                <!-- Project Card 1 -->
-                <div class="project-card fade-in">
-                    <div class="project-image">🤖</div>
-                    <div class="project-content">
-                        <h3>WhatsApp Chatbot Integration</h3>
-                        <p class="project-description">
-                            Enhanced WhatsApp chatbot functionality by integrating Infobip APIs with business tools at Harambee, improving customer engagement and automating youth employment support services with seamless data synchronization.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Infobip API</span>
-                            <span class="tag">Power Automate</span>
-                            <span class="tag">Automation</span>
-                            <span class="tag">Integration</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Project Card 2 -->
-                <div class="project-card fade-in">
-                    <div class="project-image">⚡</div>
-                    <div class="project-content">
-                        <h3>Freshservice Workflow Automation</h3>
-                        <p class="project-description">
-                            Designed and implemented automated workflows using webhooks and API integrations in Freshservice, optimizing ticket escalations and building custom SLA dashboards for performance tracking and reporting.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Freshservice</span>
-                            <span class="tag">Webhooks</span>
-                            <span class="tag">API</span>
-                            <span class="tag">Analytics</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Project Card 3 -->
-                <div class="project-card fade-in">
-                    <div class="project-image">☁️</div>
-                    <div class="project-content">
-                        <h3>Azure Cloud Infrastructure Management</h3>
-                        <p class="project-description">
-                            Managed Microsoft Azure Resource Groups and Virtual Machines for cloud infrastructure, focusing on scalability, security optimization, and cost management while ensuring high availability for business applications.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Azure</span>
-                            <span class="tag">VMs</span>
-                            <span class="tag">Cloud</span>
-                            <span class="tag">Security</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Project Card 4 -->
-                <div class="project-card fade-in">
-                    <div class="project-image">📞</div>
-                    <div class="project-content">
-                        <h3>Genesys Cloud CX Configuration</h3>
-                        <p class="project-description">
-                            Configured and managed Genesys Cloud scripts, queues, workflows, and custom data actions to enhance contact center performance, improving call routing efficiency and customer service delivery.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Genesys Cloud</span>
-                            <span class="tag">CRM</span>
-                            <span class="tag">Workflows</span>
-                            <span class="tag">Automation</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Project Card 5 -->
-                <div class="project-card fade-in">
-                    <div class="project-image">🏢</div>
-                    <div class="project-content">
-                        <h3>Enterprise Network Support</h3>
-                        <p class="project-description">
-                            Spearheaded technical troubleshooting at Commercial ICT (Elvey), managing 30+ Priority 1 tickets daily. Handled LAN/WAN support, Active Directory administration, disaster recovery, and SCCM deployments across enterprise infrastructure.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Active Directory</span>
-                            <span class="tag">Network Support</span>
-                            <span class="tag">SCCM</span>
-                            <span class="tag">Helpdesk</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Project Card 6 -->
-                <div class="project-card fade-in">
-                    <div class="project-image">🔄</div>
-                    <div class="project-content">
-                        <h3>Multi-Platform Integration Hub</h3>
-                        <p class="project-description">
-                            Built comprehensive workflow automations using Zapier, integrating Freshservice, HubSpot, Infobip, and Power Platform to streamline cross-platform data exchange and eliminate manual processes.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Zapier</span>
-                            <span class="tag">HubSpot</span>
-                            <span class="tag">Power Apps</span>
-                            <span class="tag">Integration</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- ===================================
-         CONTACT SECTION
-         Contact information and functional form
-    =================================== -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-label">Get In Touch</div>
-                <h2 class="section-title">Let's Connect</h2>
-                <p class="section-description">
-                    Have a project in mind or want to discuss opportunities? I'd love to hear from you.
-                </p>
-            </div>
-            
-            <div class="contact-content">
-                <!-- Contact Information -->
-                <div class="contact-info fade-in">
-                    <h3>Reach Out</h3>
-                    <p>
-                        Whether you have a project opportunity, collaboration idea, or just want to discuss technology and innovation, I'd love to connect. Feel free to reach out through any of the channels below or use the contact form.
-                    </p>
-                    
-                    <div class="contact-links">
-                        <a href="mailto:tmolek7@yahoo.com" class="contact-link">
-                            <div class="contact-icon">📧</div>
-                            <div>
-                                <div style="font-weight: 600;">Email</div>
-                                <div style="color: var(--color-text-secondary); font-size: 0.9rem;">tmolek7@yahoo.com</div>
-                            </div>
-                        </a>
-                        
-                        <a href="https://linkedin.com/in/kamogelo" target="_blank" rel="noopener noreferrer" class="contact-link">
-                            <div class="contact-icon">💼</div>
-                            <div>
-                                <div style="font-weight: 600;">LinkedIn</div>
-                                <div style="color: var(--color-text-secondary); font-size: 0.9rem;">linkedin.com/in/kamogelo</div>
-                            </div>
-                        </a>
-                        
-                        <a href="tel:+27825226797" class="contact-link">
-                            <div class="contact-icon">📱</div>
-                            <div>
-                                <div style="font-weight: 600;">Phone</div>
-                                <div style="color: var(--color-text-secondary); font-size: 0.9rem;">+27 82 522 6797</div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Contact Form -->
-                <div class="contact-form fade-in">
-                    <form id="contactForm" novalidate>
-                        <div class="form-group">
-                            <label for="name">Name *</label>
-                            <input type="text" id="name" name="name" required>
-                            <div class="error-message" id="nameError">Please enter your name</div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Email *</label>
-                            <input type="email" id="email" name="email" required>
-                            <div class="error-message" id="emailError">Please enter a valid email address</div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="subject">Subject *</label>
-                            <input type="text" id="subject" name="subject" required>
-                            <div class="error-message" id="subjectError">Please enter a subject</div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Message *</label>
-                            <textarea id="message" name="message" required></textarea>
-                            <div class="error-message" id="messageError">Please enter your message</div>
-                        </div>
-                        
-                        <button type="submit" class="submit-button">Send Message</button>
-                        
-                        <div class="success-message" id="successMessage">
-                            Thank you for your message! I'll get back to you soon.
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- ===================================
-         FOOTER
-         Copyright and additional info
-    =================================== -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Kamogelo Molekwa | Applications Engineer | Built with passion for innovation</p>
-        </div>
-    </footer>
-    
-    <!-- ===================================
-         JAVASCRIPT
-         Interactive functionality and form handling
-    =================================== -->
-    <script>
-        // ===================================
-        // NAVIGATION - Scroll Effects & Mobile Menu
-        // ===================================
-        
-        const navbar = document.getElementById('navbar');
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.getElementById('navLinks');
-        const navLinkElements = document.querySelectorAll('.nav-links a');
-        
-        // Add shadow to navbar on scroll
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-        
-        // Mobile menu toggle
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            
-            // Animate hamburger icon to X
-            const spans = menuToggle.querySelectorAll('span');
-            if (navLinks.classList.contains('active')) {
-                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-                spans[1].style.opacity = '0';
-                spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
-            } else {
-                spans[0].style.transform = 'none';
-                spans[1].style.opacity = '1';
-                spans[2].style.transform = 'none';
-            }
-        });
-        
-        // Close mobile menu when clicking a link
-        navLinkElements.forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                const spans = menuToggle.querySelectorAll('span');
-                spans[0].style.transform = 'none';
-                spans[1].style.opacity = '1';
-                spans[2].style.transform = 'none';
-            });
-        });
-        
-        // ===================================
-        // SMOOTH SCROLLING for navigation links
-        // ===================================
-        
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    const offsetTop = targetElement.offsetTop - 70; // Account for fixed nav height
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        
-        // ===================================
-        // INTERSECTION OBSERVER - Fade in animations on scroll
-        // ===================================
-        
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-        
-        // Observe all elements with fade-in class
-        document.querySelectorAll('.fade-in').forEach(element => {
-            observer.observe(element);
-        });
-        
-        // ===================================
-        // CONTACT FORM - Validation and Submission
-        // ===================================
-        
-        const contactForm = document.getElementById('contactForm');
-        const successMessage = document.getElementById('successMessage');
-        
-        // Email validation regex pattern
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        
-        // Form submission handler
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form fields
-            const name = document.getElementById('name');
-            const email = document.getElementById('email');
-            const subject = document.getElementById('subject');
-            const message = document.getElementById('message');
-            
-            // Get error message elements
-            const nameError = document.getElementById('nameError');
-            const emailError = document.getElementById('emailError');
-            const subjectError = document.getElementById('subjectError');
-            const messageError = document.getElementById('messageError');
-            
-            // Reset error messages
-            nameError.classList.remove('show');
-            emailError.classList.remove('show');
-            subjectError.classList.remove('show');
-            messageError.classList.remove('show');
-            successMessage.classList.remove('show');
-            
-            // Validation flag
-            let isValid = true;
-            
-            // Validate name
-            if (name.value.trim() === '') {
-                nameError.classList.add('show');
-                isValid = false;
-            }
-            
-            // Validate email
-            if (email.value.trim() === '' || !emailPattern.test(email.value.trim())) {
-                emailError.classList.add('show');
-                isValid = false;
-            }
-            
-            // Validate subject
-            if (subject.value.trim() === '') {
-                subjectError.classList.add('show');
-                isValid = false;
-            }
-            
-            // Validate message
-            if (message.value.trim() === '') {
-                messageError.classList.add('show');
-                isValid = false;
-            }
-            
-            // If all fields are valid, show success message
-            if (isValid) {
-                // Here you would normally send the form data to a server
-                // For demo purposes, we'll just show a success message
-                
-                console.log('Form Data:', {
-                    name: name.value,
-                    email: email.value,
-                    subject: subject.value,
-                    message: message.value
-                });
-                
-                // Show success message
-                successMessage.classList.add('show');
-                
-                // Reset form
-                contactForm.reset();
-                
-                // Hide success message after 5 seconds
-                setTimeout(() => {
-                    successMessage.classList.remove('show');
-                }, 5000);
-            }
-        });
-        
-        // Real-time validation - remove error when user starts typing
-        const formInputs = contactForm.querySelectorAll('input, textarea');
-        formInputs.forEach(input => {
-            input.addEventListener('input', function() {
-                const errorId = this.id + 'Error';
-                const errorElement = document.getElementById(errorId);
-                if (errorElement) {
-                    errorElement.classList.remove('show');
-                }
-            });
-        });
-        
-        // ===================================
-        // DYNAMIC YEAR in footer (optional enhancement)
-        // ===================================
-        
-        // You can dynamically update the year in the footer
-        // Uncomment the following lines if you want automatic year update:
-        
-        const footerYear = document.querySelector('footer p');
-        const currentYear = new Date().getFullYear();
-        footerYear.innerHTML = `&copy; ${currentYear} Applications Engineer. Built with passion and precision.`;
-        
-        
-    </script>
+
+<nav>
+<div class="nav-container">
+<div style="font-family:var(--font-mono);color:var(--color-primary)">&lt;/KM&gt;</div>
+<ul class="nav-links">
+<li><a href="#home">Home</a></li>
+<li><a href="#console">Console</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#experience">Experience</a></li>
+<li><a href="#certifications">Certifications</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</div>
+</nav>
+
+<section id="home" class="hero">
+<div>
+<h1>Kamogelo Molekwa</h1>
+<h2>Applications Engineer | Automation Architect | Power Platform Specialist</h2>
+<p>I design scalable enterprise systems that eliminate manual processes and improve operational efficiency.</p>
+<a href="#projects" class="cta">View Projects</a>
+</div>
+</section>
+
+<section id="console">
+<div class="container">
+<h2>Engineer Console</h2>
+<div class="terminal">
+<pre>
+> whoami
+Kamogelo Molekwa
+
+> role
+Applications Engineer at Harambee Youth Employment Accelerator
+
+> core_stack
+Power Platform | Azure | Python | API Integration
+
+> impact
+Reduced workflow inefficiencies by 40% through automation
+
+> certifications
+CompTIA A+
+
+> contact
+tmolek7@yahoo.com
+</pre>
+</div>
+</div>
+</section>
+
+<section id="about">
+<div class="container">
+<h2>About</h2>
+<p>
+From Helpdesk to Applications Engineering, I have built my career on continuous learning and enterprise problem solving.
+My experience spans Active Directory, cloud infrastructure, CRM systems, automation platforms, and API integrations.
+</p>
+</div>
+</section>
+
+<section>
+<div class="container">
+<h2>Impact Metrics</h2>
+<div class="grid grid-4">
+<div class="card"><h3>5+ Years</h3><p>IT Experience</p></div>
+<div class="card"><h3>30+</h3><p>Daily P1 Tickets Managed</p></div>
+<div class="card"><h3>40%</h3><p>Workflow Efficiency Improvement</p></div>
+<div class="card"><h3>100%</h3><p>SLA Focus</p></div>
+</div>
+</div>
+</section>
+
+<section id="experience">
+<div class="container">
+<h2>Professional Experience</h2>
+<div class="timeline">
+
+<div class="timeline-item">
+<h3>Applications Engineer – Harambee</h3>
+<p>Designed Power Apps systems, integrated WhatsApp (Infobip API), automated workflows and CRM integrations.</p>
+</div>
+
+<div class="timeline-item">
+<h3>Network Engineer – Commercial ICT</h3>
+<p>Managed enterprise infrastructure, Active Directory, SCCM, disaster recovery, and 30+ daily P1 tickets.</p>
+</div>
+
+<div class="timeline-item">
+<h3>IT Support – Nashua</h3>
+<p>Tier 1 troubleshooting, endpoint management and customer-facing support.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<section id="certifications">
+<div class="container">
+<h2>Certifications</h2>
+<div class="grid grid-3">
+<div class="card"><h3>CompTIA A+</h3><p>IT Fundamentals & Hardware/Software Support</p></div>
+<div class="card"><h3>Microsoft Azure (In Progress)</h3><p>Cloud Infrastructure & Services</p></div>
+<div class="card"><h3>Power Platform</h3><p>Business Application Development</p></div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="container">
+<h2>Technology Stack</h2>
+<div class="grid grid-4 tech-stack">
+<div>Power Apps</div>
+<div>Power Automate</div>
+<div>Azure</div>
+<div>Python</div>
+<div>React</div>
+<div>SQL</div>
+<div>Infobip API</div>
+<div>Freshservice</div>
+<div>Genesys Cloud</div>
+<div>Zapier</div>
+<div>Active Directory</div>
+<div>Jira</div>
+</div>
+</div>
+</section>
+
+<section id="projects">
+<div class="container">
+<h2>Case Study Projects</h2>
+<div class="grid grid-3">
+
+<div class="card">
+<h3>WhatsApp Automation Platform</h3>
+<p><strong>Problem:</strong> Manual youth engagement tracking.</p>
+<p><strong>Solution:</strong> Built Infobip API integration with Power Automate.</p>
+<p><strong>Impact:</strong> Reduced response time by 40%.</p>
+</div>
+
+<div class="card">
+<h3>Freshservice Workflow Optimization</h3>
+<p><strong>Problem:</strong> Inefficient ticket escalations.</p>
+<p><strong>Solution:</strong> Implemented webhook automations and dashboards.</p>
+<p><strong>Impact:</strong> Improved SLA tracking accuracy.</p>
+</div>
+
+<div class="card">
+<h3>Azure Infrastructure Management</h3>
+<p><strong>Problem:</strong> Scaling and cost inefficiencies.</p>
+<p><strong>Solution:</strong> Optimized VMs and resource groups.</p>
+<p><strong>Impact:</strong> Increased availability and reduced cloud waste.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<section id="contact">
+<div class="container">
+<h2>Contact</h2>
+<p>Email: tmolek7@yahoo.com</p>
+<p>Phone: +27 82 522 6797</p>
+<p>LinkedIn: linkedin.com/in/kamogelo</p>
+</div>
+</section>
+
+<footer>
+<p id="footerText"></p>
+</footer>
+
+<script>
+document.getElementById("footerText").innerHTML =
+"© " + new Date().getFullYear() +
+" Kamogelo Molekwa | Applications Engineer | Automation Architect";
+</script>
+
 </body>
 </html>
