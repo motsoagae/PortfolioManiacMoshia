@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-ZA">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,44 +7,112 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Lexend:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&family=Crimson+Pro:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-:root {
---color-primary:#00D9FF;
---color-secondary:#FF3366;
---bg-dark:#0A0E27;
---bg-medium:#151B3B;
---bg-light:#1E2749;
---text-primary:#fff;
---text-secondary:#A0AEC0;
---border:#2D3748;
---font-display:'Lexend',sans-serif;
---font-mono:'JetBrains Mono',monospace;
+
+/* ===============================
+   DESIGN SYSTEM (From Premium Template)
+================================= */
+
+:root{
+--slate-950:#0a0f1e;
+--slate-900:#0f172a;
+--slate-800:#1e293b;
+--slate-700:#334155;
+--slate-500:#64748b;
+--slate-400:#94a3b8;
+--slate-100:#f1f5f9;
+
+--electric-blue:#3b82f6;
+--electric-blue-light:#60a5fa;
+--cyan-accent:#06b6d4;
+--emerald-accent:#10b981;
+
+--bg-primary:var(--slate-950);
+--bg-secondary:var(--slate-900);
+
+--text-primary:var(--slate-100);
+--text-secondary:var(--slate-400);
+--text-muted:var(--slate-500);
+
+--border-subtle:rgba(148,163,184,0.1);
+
+--font-display:'Outfit',sans-serif;
+--font-mono:'Fira Code',monospace;
+--font-serif:'Crimson Pro',serif;
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:var(--font-display);background:var(--bg-dark);color:var(--text-primary);line-height:1.6}
-section{padding:6rem 2rem}
-.container{max-width:1200px;margin:auto}
-h1,h2,h3{margin-bottom:1rem}
-p{color:var(--text-secondary)}
-a{text-decoration:none;color:inherit}
+
+body{
+font-family:var(--font-display);
+background:var(--bg-primary);
+color:var(--text-primary);
+line-height:1.6;
+overflow-x:hidden;
+}
+
+body::before{
+content:'';
+position:fixed;
+inset:0;
+background:
+radial-gradient(ellipse 80% 50% at 50% -20%, rgba(59,130,246,0.15), transparent),
+radial-gradient(ellipse 60% 50% at 0% 100%, rgba(6,182,212,0.08), transparent),
+radial-gradient(ellipse 60% 50% at 100% 100%, rgba(244,63,94,0.08), transparent);
+pointer-events:none;
+z-index:0;
+}
+
+/* ===============================
+   NAVIGATION
+================================= */
 
 nav{
 position:fixed;
-top:0;
-width:100%;
-background:rgba(10,14,39,.95);
-backdrop-filter:blur(10px);
-padding:1rem 0;
+top:0;left:0;right:0;
+background:rgba(10,15,30,.85);
+backdrop-filter:blur(14px);
+border-bottom:1px solid var(--border-subtle);
 z-index:1000;
-border-bottom:1px solid var(--border)
 }
-.nav-container{display:flex;justify-content:space-between;align-items:center;padding:0 2rem}
-.nav-links{display:flex;gap:2rem;list-style:none}
-.nav-links a{color:var(--text-secondary)}
-.nav-links a:hover{color:var(--color-primary)}
+
+.nav-container{
+max-width:1200px;
+margin:auto;
+padding:1rem 2rem;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-family:var(--font-mono);
+font-weight:600;
+color:var(--electric-blue-light);
+}
+
+.nav-links{
+display:flex;
+gap:2rem;
+list-style:none;
+}
+
+.nav-links a{
+color:var(--text-secondary);
+text-decoration:none;
+font-size:.95rem;
+transition:.3s;
+}
+
+.nav-links a:hover{
+color:var(--text-primary);
+}
+
+/* ===============================
+   HERO
+================================= */
 
 .hero{
 min-height:100vh;
@@ -52,15 +120,83 @@ display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
-padding-top:100px
+padding:6rem 2rem 4rem;
+position:relative;
+z-index:1;
 }
+
+.hero-label{
+font-family:var(--font-mono);
+font-size:.8rem;
+color:var(--electric-blue-light);
+letter-spacing:.1em;
+text-transform:uppercase;
+margin-bottom:1rem;
+}
+
 .hero h1{
-font-size:3.5rem;
-background:linear-gradient(135deg,var(--color-primary),var(--color-secondary));
+font-size:clamp(3rem,7vw,5rem);
+font-weight:800;
+letter-spacing:-.03em;
+background:linear-gradient(135deg,var(--text-primary),var(--slate-400));
 -webkit-background-clip:text;
--webkit-text-fill-color:transparent
+-webkit-text-fill-color:transparent;
 }
-.cta{display:inline-block;margin-top:2rem;padding:1rem 2rem;border-radius:50px;background:var(--color-primary);color:#000;font-weight:600}
+
+.subtitle{
+font-family:var(--font-serif);
+font-style:italic;
+font-size:1.5rem;
+color:var(--text-secondary);
+margin:1rem 0;
+}
+
+.tagline{
+max-width:700px;
+margin:0 auto 2rem;
+color:var(--text-muted);
+}
+
+.cta{
+display:inline-block;
+padding:.9rem 2rem;
+background:var(--electric-blue);
+color:white;
+border-radius:8px;
+text-decoration:none;
+font-weight:600;
+transition:.3s;
+}
+
+.cta:hover{
+background:var(--electric-blue-light);
+transform:translateY(-3px);
+}
+
+/* ===============================
+   SECTIONS
+================================= */
+
+section{
+padding:6rem 2rem;
+position:relative;
+z-index:1;
+}
+
+.container{
+max-width:1100px;
+margin:auto;
+}
+
+.section-title{
+text-align:center;
+font-size:2.5rem;
+margin-bottom:3rem;
+}
+
+/* ===============================
+   TERMINAL
+================================= */
 
 .terminal{
 background:#000;
@@ -68,88 +204,104 @@ border-radius:12px;
 padding:2rem;
 font-family:var(--font-mono);
 color:#00ff88;
-margin-top:3rem
+box-shadow:0 0 20px rgba(0,255,136,0.15);
+overflow-x:auto;
 }
 
-.timeline{border-left:2px solid var(--color-primary);padding-left:2rem}
-.timeline-item{margin-bottom:3rem}
+/* ===============================
+   CARDS
+================================= */
+
+.grid{
+display:grid;
+gap:2rem;
+}
+
+.grid-3{
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+}
 
 .card{
-background:var(--bg-medium);
+background:rgba(255,255,255,.02);
+border:1px solid var(--border-subtle);
 padding:2rem;
-border-radius:12px;
-border:1px solid var(--border)
+border-radius:14px;
+transition:.3s;
 }
 
-.grid{display:grid;gap:2rem}
-.grid-3{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
-.grid-4{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
-
-.tech-stack div{
-background:var(--bg-light);
-padding:1rem;
-text-align:center;
-border-radius:8px;
-border:1px solid var(--border);
-font-family:var(--font-mono)
+.card:hover{
+transform:translateY(-6px);
+border-color:rgba(148,163,184,.3);
 }
+
+.card h3{
+margin-bottom:.8rem;
+}
+
+/* ===============================
+   FOOTER
+================================= */
 
 footer{
-background:var(--bg-medium);
+background:var(--bg-secondary);
+border-top:1px solid var(--border-subtle);
 padding:2rem;
 text-align:center;
-border-top:1px solid var(--border)
 }
+
+footer p{
+color:var(--text-muted);
+font-size:.9rem;
+}
+
 </style>
 </head>
 <body>
 
 <nav>
 <div class="nav-container">
-<div style="font-family:var(--font-mono);color:var(--color-primary)">&lt;/KM&gt;</div>
+<div class="logo">KM</div>
 <ul class="nav-links">
-<li><a href="#home">Home</a></li>
-<li><a href="#console">Console</a></li>
 <li><a href="#about">About</a></li>
+<li><a href="#console">Console</a></li>
 <li><a href="#experience">Experience</a></li>
-<li><a href="#certifications">Certifications</a></li>
 <li><a href="#projects">Projects</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
 </div>
 </nav>
 
-<section id="home" class="hero">
+<section class="hero">
 <div>
+<div class="hero-label">Applications Engineer</div>
 <h1>Kamogelo Molekwa</h1>
-<h2>Applications Engineer | Automation Architect | Power Platform Specialist</h2>
-<p>I design scalable enterprise systems that eliminate manual processes and improve operational efficiency.</p>
-<a href="#projects" class="cta">View Projects</a>
+<div class="subtitle">From Helpdesk to Applications Engineering</div>
+<p class="tagline">
+Transforming business processes through automation, innovation, and enterprise-grade system design.
+</p>
+<a href="#projects" class="cta">View Case Studies →</a>
 </div>
 </section>
 
 <section id="console">
 <div class="container">
-<h2>Engineer Console</h2>
+<h2 class="section-title">Engineer Console</h2>
 <div class="terminal">
 <pre>
 > whoami
 Kamogelo Molekwa
 
 > role
-Applications Engineer at Harambee Youth Employment Accelerator
+Applications Engineer | Automation Architect
 
 > core_stack
-Power Platform | Azure | Python | API Integration
+Power Platform | Azure | Python | API Integrations
 
 > impact
-Reduced workflow inefficiencies by 40% through automation
+40% workflow efficiency improvement
 
-> certifications
-CompTIA A+
-
-> contact
-tmolek7@yahoo.com
+> current_focus
+Enterprise Automation & Scalable Systems
 </pre>
 </div>
 </div>
@@ -157,128 +309,71 @@ tmolek7@yahoo.com
 
 <section id="about">
 <div class="container">
-<h2>About</h2>
-<p>
-From Helpdesk to Applications Engineering, I have built my career on continuous learning and enterprise problem solving.
-My experience spans Active Directory, cloud infrastructure, CRM systems, automation platforms, and API integrations.
+<h2 class="section-title">About</h2>
+<p style="max-width:800px;margin:auto;text-align:center;color:var(--text-secondary)">
+From Tier 1 support to enterprise system architecture, my journey has been driven by continuous learning,
+critical thinking, and building automation that eliminates manual processes and drives measurable impact.
 </p>
-</div>
-</section>
-
-<section>
-<div class="container">
-<h2>Impact Metrics</h2>
-<div class="grid grid-4">
-<div class="card"><h3>5+ Years</h3><p>IT Experience</p></div>
-<div class="card"><h3>30+</h3><p>Daily P1 Tickets Managed</p></div>
-<div class="card"><h3>40%</h3><p>Workflow Efficiency Improvement</p></div>
-<div class="card"><h3>100%</h3><p>SLA Focus</p></div>
-</div>
 </div>
 </section>
 
 <section id="experience">
 <div class="container">
-<h2>Professional Experience</h2>
-<div class="timeline">
-
-<div class="timeline-item">
-<h3>Applications Engineer – Harambee</h3>
-<p>Designed Power Apps systems, integrated WhatsApp (Infobip API), automated workflows and CRM integrations.</p>
-</div>
-
-<div class="timeline-item">
-<h3>Network Engineer – Commercial ICT</h3>
-<p>Managed enterprise infrastructure, Active Directory, SCCM, disaster recovery, and 30+ daily P1 tickets.</p>
-</div>
-
-<div class="timeline-item">
-<h3>IT Support – Nashua</h3>
-<p>Tier 1 troubleshooting, endpoint management and customer-facing support.</p>
-</div>
-
-</div>
-</div>
-</section>
-
-<section id="certifications">
-<div class="container">
-<h2>Certifications</h2>
+<h2 class="section-title">Professional Experience</h2>
 <div class="grid grid-3">
-<div class="card"><h3>CompTIA A+</h3><p>IT Fundamentals & Hardware/Software Support</p></div>
-<div class="card"><h3>Microsoft Azure (In Progress)</h3><p>Cloud Infrastructure & Services</p></div>
-<div class="card"><h3>Power Platform</h3><p>Business Application Development</p></div>
+<div class="card">
+<h3>Applications Engineer</h3>
+<p>Designed Power Apps systems, integrated Infobip APIs, automated workflows and CRM integrations.</p>
 </div>
+<div class="card">
+<h3>Network Engineer</h3>
+<p>Managed Active Directory, disaster recovery, and resolved 30+ P1 tickets daily.</p>
 </div>
-</section>
-
-<section>
-<div class="container">
-<h2>Technology Stack</h2>
-<div class="grid grid-4 tech-stack">
-<div>Power Apps</div>
-<div>Power Automate</div>
-<div>Azure</div>
-<div>Python</div>
-<div>React</div>
-<div>SQL</div>
-<div>Infobip API</div>
-<div>Freshservice</div>
-<div>Genesys Cloud</div>
-<div>Zapier</div>
-<div>Active Directory</div>
-<div>Jira</div>
+<div class="card">
+<h3>IT Support</h3>
+<p>Tier 1 troubleshooting, endpoint management, and customer-facing support.</p>
+</div>
 </div>
 </div>
 </section>
 
 <section id="projects">
 <div class="container">
-<h2>Case Study Projects</h2>
+<h2 class="section-title">Case Studies</h2>
 <div class="grid grid-3">
-
 <div class="card">
-<h3>WhatsApp Automation Platform</h3>
-<p><strong>Problem:</strong> Manual youth engagement tracking.</p>
-<p><strong>Solution:</strong> Built Infobip API integration with Power Automate.</p>
-<p><strong>Impact:</strong> Reduced response time by 40%.</p>
+<h3>WhatsApp Automation</h3>
+<p>Infobip API + Power Automate integration reducing response time by 40%.</p>
 </div>
-
 <div class="card">
-<h3>Freshservice Workflow Optimization</h3>
-<p><strong>Problem:</strong> Inefficient ticket escalations.</p>
-<p><strong>Solution:</strong> Implemented webhook automations and dashboards.</p>
-<p><strong>Impact:</strong> Improved SLA tracking accuracy.</p>
+<h3>Freshservice Optimization</h3>
+<p>Webhook automation and SLA dashboards for ticket lifecycle tracking.</p>
 </div>
-
 <div class="card">
-<h3>Azure Infrastructure Management</h3>
-<p><strong>Problem:</strong> Scaling and cost inefficiencies.</p>
-<p><strong>Solution:</strong> Optimized VMs and resource groups.</p>
-<p><strong>Impact:</strong> Increased availability and reduced cloud waste.</p>
+<h3>Azure Infrastructure</h3>
+<p>Optimized VMs and resource groups to increase scalability and reduce waste.</p>
 </div>
-
 </div>
 </div>
 </section>
 
 <section id="contact">
 <div class="container">
-<h2>Contact</h2>
-<p>Email: tmolek7@yahoo.com</p>
-<p>Phone: +27 82 522 6797</p>
-<p>LinkedIn: linkedin.com/in/kamogelo</p>
+<h2 class="section-title">Contact</h2>
+<div class="grid grid-3">
+<div class="card"><h3>Email</h3><p>tmolek7@yahoo.com</p></div>
+<div class="card"><h3>Phone</h3><p>+27 82 522 6797</p></div>
+<div class="card"><h3>LinkedIn</h3><p>linkedin.com/in/kamogelo</p></div>
+</div>
 </div>
 </section>
 
 <footer>
-<p id="footerText"></p>
+<p>© <span id="year"></span> Kamogelo Molekwa | Applications Engineer | Built with precision</p>
 </footer>
 
 <script>
-document.getElementById("footerText").innerHTML =
-"© " + new Date().getFullYear() +
-" Kamogelo Molekwa | Applications Engineer | Automation Architect";
+document.getElementById("year").innerText = new Date().getFullYear();
 </script>
 
 </body>
