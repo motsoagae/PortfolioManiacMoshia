@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<html lang="en">
 <head>
     <title>Applications Engineer Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -66,33 +67,304 @@
         }
     </style>
 </head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Applications Engineer Portfolio</title>
+<style>
+/* =======================
+   GLOBAL STYLES
+======================= */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f8fafc;
+    color: #1f2937;
+    scroll-behavior: smooth;
+}
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+section {
+    padding: 80px 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* =======================
+   NAVIGATION BAR
+======================= */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #0f172a;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    z-index: 1000;
+}
+
+nav .logo {
+    font-weight: bold;
+    font-size: 20px;
+    color: #38bdf8;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: white;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #38bdf8;
+}
+
+/* =======================
+   HERO SECTION
+======================= */
+header.hero {
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    color: white;
+    text-align: center;
+    padding: 150px 20px 120px 20px;
+}
+
+header.hero h1 {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+header.hero p {
+    font-size: 22px;
+    color: #38bdf8;
+    margin-bottom: 30px;
+}
+
+header.hero button {
+    padding: 15px 30px;
+    background: #38bdf8;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+header.hero button:hover {
+    background: #2563eb;
+}
+
+/* =======================
+   ABOUT SECTION
+======================= */
+.about p {
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+/* =======================
+   SKILLS SECTION
+======================= */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+    transition: 0.3s ease;
+    text-align: center;
+    font-weight: 500;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+/* =======================
+   PROJECTS SECTION
+======================= */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.project-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.project-card img {
+    width: 100%;
+    display: block;
+    transition: 0.3s;
+}
+
+.project-card:hover img {
+    transform: scale(1.05);
+}
+
+.project-card div {
+    padding: 20px;
+}
+
+/* =======================
+   CONTACT SECTION
+======================= */
+.contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+}
+
+.contact input, .contact textarea {
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.contact button {
+    padding: 15px;
+    background: #38bdf8;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.contact button:hover {
+    background: #2563eb;
+}
+
+/* =======================
+   FOOTER
+======================= */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    background: #0f172a;
+    color: white;
+}
+
+/* =======================
+   RESPONSIVE
+======================= */
+@media(max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+</style>
+</head>
 <body>
 
 <header>
+<!-- NAVIGATION -->
+<nav>
+    <div class="logo">My Portfolio</div>
+    <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
     <h1>Applications Engineer</h1>
     <p>Delivering Reliable, Scalable & Intelligent Technical Solutions</p>
+    <p>Reliable, Scalable & Intelligent Technical Solutions</p>
+    <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact Me</button>
 </header>
 
 <section>
+<!-- ABOUT -->
+<section class="about" id="about">
     <h2>About Me</h2>
     <p>
         Results-driven Applications Engineer and proactive IT professional with strong
         expertise in system optimization, troubleshooting, and performance improvement.
         Passionate about solving complex technical challenges and delivering client-focused
         solutions that improve reliability and efficiency.
+        I am a results-driven Applications Engineer and self-starter in IT. I specialize in
+        troubleshooting, system optimization, and client-focused technical solutions. 
+        My goal is to deliver efficient, scalable, and innovative systems that improve 
+        business operations.
     </p>
 </section>
 
 <section>
     <h2>Core Expertise</h2>
     <div class="skills">
+<!-- SKILLS -->
+<section id="skills">
+    <h2>Core Skills</h2>
+    <div class="skills-grid">
         <div class="card">Application Support</div>
         <div class="card">Systems Optimization</div>
         <div class="card">Root Cause Analysis</div>
         <div class="card">Performance Monitoring</div>
         <div class="card">Technical Documentation</div>
         <div class="card">Infrastructure Support</div>
+        <div class="card">Client-Focused Solutions</div>
+        <div class="card">IT Infrastructure Support</div>
+        <div class="card">Continuous Learning</div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+        <div class="project-card">
+            <img src="https://via.placeholder.com/600x350" alt="Project 1">
+            <div>
+                <h3>Project One</h3>
+                <p>Optimized application performance, reducing load times by 40%.</p>
+            </div>
+        </div>
+        <div class="project-card">
+            <img src="https://via.placeholder.com/600x350" alt="Project 2">
+            <div>
+                <h3>Project Two</h3>
+                <p>Implemented a monitoring system that improved uptime reliability.</p>
+            </div>
+        </div>
+        <div class="project-card">
+            <img src="https://via.placeholder.com/600x350" alt="Project 3">
+            <div>
+                <h3>Project Three</h3>
+                <p>Designed a client-focused troubleshooting dashboard for IT support.</p>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -100,11 +372,39 @@
     <h2>Contact</h2>
     <p>Email: your@email.com</p>
     <p>LinkedIn: linkedin.com/in/yourprofile</p>
+<!-- CONTACT -->
+<section class="contact" id="contact">
+    <h2>Contact Me</h2>
+    <form onsubmit="return validateForm()">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+        <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
 </section>
 
+<!-- FOOTER -->
 <footer>
     © 2026 Your Name | Applications Engineer
 </footer>
 
+<script>
+// ==========================
+// SIMPLE FORM VALIDATION
+// ==========================
+function validateForm() {
+    let name = document.getElementById('name').value.trim();
+    let email = document.getElementById('email').value.trim();
+    let message = document.getElementById('message').value.trim();
+
+    if(name === "" || email === "" || message === "") {
+        alert("Please fill out all fields.");
+        return false;
+    }
+
+    alert("Message sent! (This is a demo; replace with backend to actually send.)");
+    return false;
+}
+</script>
 </body>
 </html>
