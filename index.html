@@ -128,12 +128,6 @@
             color: var(--text-primary);
             text-decoration: none;
         }
-
-        /* Add this: */
-.logo-bracket {
-    color: #00ff88;  /* Change to any color you want */
-    opacity: 0.7;
-}
         
         .nav-links {
             display: flex;
@@ -302,10 +296,12 @@
             gap: 0.5rem;
         }
         
+        /* Hide Explore Console button on desktop */
         .cta-button.primary {
             background: var(--electric-blue);
             color: white;
             box-shadow: 0 4px 14px rgba(59, 130, 246, 0.25);
+            display: none;
         }
         
         .cta-button.primary:hover {
@@ -756,6 +752,11 @@
                 width: 180px;
             }
             
+            /* Show Explore Console button on mobile/tablet */
+            .cta-button.primary {
+                display: inline-flex;
+            }
+            
             /* Console terminal mobile fix */
             .console-terminal {
                 padding: 1rem;
@@ -767,24 +768,42 @@
                 line-height: 1.6;
             }
             
+            /* Better mobile timeline layout */
             .timeline::before {
-                left: 0;
+                left: 8px;
             }
             
             .timeline-item {
                 grid-template-columns: 1fr;
+                margin-bottom: 2.5rem;
             }
             
             .timeline-item:nth-child(even) .timeline-content,
             .timeline-item:nth-child(odd) .timeline-content {
                 grid-column: 1;
                 text-align: left;
-                margin-left: 2rem;
+                margin-left: 2.5rem;
             }
             
             .timeline-dot {
-                left: 0;
-                transform: translateX(0);
+                left: 8px;
+                transform: translateX(-50%);
+            }
+            
+            .timeline-content {
+                padding: 1.25rem;
+            }
+            
+            .timeline-content h3 {
+                font-size: 1.125rem;
+            }
+            
+            .timeline-content h4 {
+                font-size: 0.9375rem;
+            }
+            
+            .timeline-content p {
+                font-size: 0.875rem;
             }
             
             .chatbot-window {
@@ -803,7 +822,7 @@
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
-            <a href="#home" class="logo"><span class="logo-bracket">&lt;</span>KM<span class="logo-bracket">/&gt;</span></a>
+            <a href="#home" class="logo">KM</a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#console">Console</a></li>
