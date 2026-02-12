@@ -356,6 +356,31 @@
             color: #60a5fa;
         }
         
+        /* VS Code-like syntax highlighting for console */
+        .keyword {
+            color: #c586c0; /* Purple like VS Code const/let/var */
+        }
+        
+        .variable {
+            color: #ffffff; /* White for variable names */
+        }
+        
+        .property {
+            color: #ffffff; /* White for object properties */
+        }
+        
+        .string {
+            color: #00ff88; /* Terminal green for strings */
+        }
+        
+        .operator {
+            color: #ffffff; /* White for operators like : , = */
+        }
+        
+        .bracket {
+            color: #ffffff; /* White for brackets */
+        }
+        
         /* Tools Grid */
         .tools-grid {
             display: grid;
@@ -771,42 +796,127 @@
                 line-height: 1.6;
             }
             
-            /* Better mobile timeline layout */
+            /* PREMIUM MOBILE TIMELINE REDESIGN */
+            section#experience {
+                padding: 4rem 1rem;
+            }
+            
+            .timeline {
+                padding: 0 1rem;
+            }
+            
             .timeline::before {
-                left: 8px;
+                left: 20px;
+                width: 3px;
+                background: linear-gradient(180deg, 
+                    var(--electric-blue) 0%, 
+                    var(--cyan-accent) 50%, 
+                    var(--electric-blue) 100%);
+                box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
             }
             
             .timeline-item {
                 grid-template-columns: 1fr;
-                margin-bottom: 2.5rem;
+                margin-bottom: 3rem;
+                padding-left: 3rem;
             }
             
             .timeline-item:nth-child(even) .timeline-content,
             .timeline-item:nth-child(odd) .timeline-content {
                 grid-column: 1;
                 text-align: left;
-                margin-left: 2.5rem;
+                margin: 0;
             }
             
             .timeline-dot {
-                left: 8px;
-                transform: translateX(-50%);
+                left: 20px;
+                width: 20px;
+                height: 20px;
+                top: 0;
+                box-shadow: 
+                    0 0 0 4px var(--bg-primary), 
+                    0 0 0 6px var(--electric-blue),
+                    0 0 20px rgba(59, 130, 246, 0.6);
+                animation: pulse 2s ease-in-out infinite;
+            }
+            
+            @keyframes pulse {
+                0%, 100% {
+                    box-shadow: 
+                        0 0 0 4px var(--bg-primary), 
+                        0 0 0 6px var(--electric-blue),
+                        0 0 20px rgba(59, 130, 246, 0.6);
+                }
+                50% {
+                    box-shadow: 
+                        0 0 0 4px var(--bg-primary), 
+                        0 0 0 8px var(--electric-blue-light),
+                        0 0 30px rgba(59, 130, 246, 0.8);
+                }
             }
             
             .timeline-content {
-                padding: 1.25rem;
+                padding: 1.5rem;
+                background: linear-gradient(135deg, 
+                    rgba(59, 130, 246, 0.05) 0%, 
+                    rgba(6, 182, 212, 0.03) 100%);
+                border: 1px solid rgba(59, 130, 246, 0.2);
+                border-left: 3px solid var(--electric-blue);
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+                position: relative;
+                overflow: hidden;
+            }
+            
+            .timeline-content::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 2px;
+                background: linear-gradient(90deg, 
+                    var(--electric-blue), 
+                    var(--cyan-accent), 
+                    transparent);
+            }
+            
+            .timeline-content:hover {
+                border-color: var(--electric-blue);
+                transform: translateX(8px);
+                box-shadow: 0 8px 30px rgba(59, 130, 246, 0.3);
+            }
+            
+            .timeline-date {
+                display: inline-block;
+                padding: 0.35rem 0.75rem;
+                background: rgba(59, 130, 246, 0.15);
+                border-radius: 6px;
+                border: 1px solid rgba(59, 130, 246, 0.3);
+                font-size: 0.8125rem;
+                font-weight: 600;
+                margin-bottom: 0.75rem;
             }
             
             .timeline-content h3 {
-                font-size: 1.125rem;
+                font-size: 1.25rem;
+                margin-bottom: 0.5rem;
+                font-weight: 700;
+                background: linear-gradient(135deg, var(--text-primary), var(--electric-blue-light));
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
             }
             
             .timeline-content h4 {
-                font-size: 0.9375rem;
+                font-size: 1rem;
+                color: var(--cyan-accent);
+                font-weight: 600;
+                margin-bottom: 1rem;
             }
             
             .timeline-content p {
-                font-size: 0.875rem;
+                font-size: 0.9375rem;
+                line-height: 1.7;
+                color: var(--text-secondary);
             }
             
             .chatbot-window {
@@ -897,16 +1007,14 @@
 <span class="output">Enterprise Automation & Scalable Systems</span>
 
 <span class="prompt">> availability</span>
-<span class="output">const availability = 
-{
-  status: "Not Yet Uhuru",
-  reason: "Deep work on core projects",
-  acceptingFunProjects: false
-};
-</span>
+<span class="keyword">const</span> <span class="variable">availability</span> <span class="operator">=</span> <span class="bracket">{</span>
+  <span class="property">status</span><span class="operator">:</span> <span class="string">"Not Yet Uhuru"</span><span class="operator">,</span>
+  <span class="property">reason</span><span class="operator">:</span> <span class="string">"Deep work on core projects"</span><span class="operator">,</span>
+  <span class="property">acceptingFunProjects</span><span class="operator">:</span> <span class="keyword">false</span>
+<span class="bracket">}</span><span class="operator">;</span>
 
 <span class="prompt">> contact</span>
-<span class="output">Email: tmolek7@yahoo.com
+<span class="output">Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="93e7fefcfff6f8a4d3eaf2fbfcfcbdf0fcfe">[email&#160;protected]</a>
 Phone: +27 82 522 6797
 LinkedIn: linkedin.com/in/kamogelo</span></pre>
             </div>
@@ -1205,7 +1313,7 @@ LinkedIn: linkedin.com/in/kamogelo</span></pre>
         </div>
     </div>
     
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Navigation scroll effect
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
@@ -1332,6 +1440,10 @@ LinkedIn: linkedin.com/in/kamogelo</span></pre>
                 }
             });
         });
+
+          // Auto update footer year range
+        const startYear = 2022;
+        const currentYear = new
 
           // Auto update footer year range
         const startYear = 2022;
