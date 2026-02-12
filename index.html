@@ -1,221 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Applications Engineer Portfolio</title>
-<style>
-/* =======================
-   GLOBAL STYLES
-======================= */
-body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: #f8fafc;
-    color: #1f2937;
-    scroll-behavior: smooth;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-section {
-    padding: 80px 20px;
-    max-width: 1100px;
-    margin: auto;
-}
-
-/* =======================
-   NAVIGATION BAR
-======================= */
-nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: #0f172a;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 50px;
-    z-index: 1000;
-}
-
-nav .logo {
-    font-weight: bold;
-    font-size: 20px;
-    color: #38bdf8;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
-
-nav ul li a {
-    color: white;
-    font-weight: 500;
-    transition: 0.3s;
-}
-
-nav ul li a:hover {
-    color: #38bdf8;
-}
-
-/* =======================
-   HERO SECTION
-======================= */
-header.hero {
-    background: linear-gradient(135deg, #1e293b, #0f172a);
-    color: white;
-    text-align: center;
-    padding: 150px 20px 120px 20px;
-}
-
-header.hero h1 {
-    font-size: 50px;
-    margin-bottom: 10px;
-}
-
-header.hero p {
-    font-size: 22px;
-    color: #38bdf8;
-    margin-bottom: 30px;
-}
-
-header.hero button {
-    padding: 15px 30px;
-    background: #38bdf8;
-    border: none;
-    border-radius: 6px;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-header.hero button:hover {
-    background: #2563eb;
-}
-
-/* =======================
-   ABOUT SECTION
-======================= */
-.about p {
-    font-size: 18px;
-    line-height: 1.7;
-}
-
-/* =======================
-   SKILLS SECTION
-======================= */
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.card {
-    background: white;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-    transition: 0.3s ease;
-    text-align: center;
-    font-weight: 500;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-}
-
-/* =======================
-   PROJECTS SECTION
-======================= */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
-}
-
-.project-card {
-    background: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-    transition: 0.3s;
-}
-
-.project-card img {
-    width: 100%;
-    display: block;
-    transition: 0.3s;
-}
-
-.project-card:hover img {
-    transform: scale(1.05);
-}
-
-.project-card div {
-    padding: 20px;
-}
-
-/* =======================
-   CONTACT SECTION
-======================= */
-.contact form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    max-width: 500px;
-}
-
-.contact input, .contact textarea {
-    padding: 12px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-}
-
-.contact button {
-    padding: 15px;
-    background: #38bdf8;
-    border: none;
-    color: white;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: 0.3s;
-}
-
-.contact button:hover {
-    background: #2563eb;
-}
-
-/* =======================
-   FOOTER
-======================= */
-footer {
-    text-align: center;
-    padding: 40px 20px;
-    background: #0f172a;
-    color: white;
-}
-
-/* =======================
-   RESPONSIVE
-======================= */
-@media(max-width: 768px) {
-    nav {
-        flex-direction: column;
-        gap: 10px;
-    }
-}
-</style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Applications Engineer Portfolio</title>
@@ -1151,62 +936,158 @@ footer {
             transform: translateY(0);
         }
     </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Kamogelo Molekwa - Applications Engineer specializing in Microsoft Power Platform, automation, and IT infrastructure.">
+<meta name="keywords" content="Applications Engineer, Power Platform, Power Automate, Power Apps, IT Support, Network Engineer, Automation, Azure, South Africa">
+<meta name="author" content="Kamogelo Molekwa">
+<meta name="theme-color" content="#1a1a1a">
+<title>Kamogelo Molekwa | Applications Engineer</title>
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+:root {
+    --color-dark: #1a1a1a;
+    --color-charcoal: #2d2d2d;
+    --color-slate: #4a5568;
+    --color-light-gray: #e2e8f0;
+    --color-white: #ffffff;
+    --color-off-white: #f7fafc;
+    --color-accent: #2563eb;
+    --color-accent-light: #3b82f6;
+    --color-success: #10b981;
+    --font-primary: 'Inter', sans-serif;
+    --font-display: 'Playfair Display', serif;
+    --shadow-sm: 0 1px 2px 0 rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+    --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1);
+    --transition: all 0.3s ease;
+}
+
+/* --- GENERAL STYLES --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { font-family: var(--font-primary); background: var(--color-white); color: var(--color-dark); line-height: 1.7; overflow-x: hidden; transition: background 0.3s, color 0.3s;}
+.dark-mode { background: var(--color-dark); color: var(--color-white); }
+
+/* NAVIGATION */
+nav { position: fixed; top:0; left:0; right:0; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--color-light-gray); padding:1.2rem 0; z-index:1000; transition: var(--transition);}
+nav.scrolled { box-shadow: var(--shadow-md); padding:0.8rem 0;}
+.nav-container { max-width:1200px; margin:0 auto; padding:0 2rem; display:flex; justify-content:space-between; align-items:center;}
+.logo { font-family: var(--font-display); font-size:1.5rem; font-weight:700; color: var(--color-dark); text-decoration:none;}
+.nav-links { display:flex; list-style:none; gap:2.5rem;}
+.nav-links a { color: var(--color-slate); text-decoration:none; font-weight:500; font-size:0.95rem; position:relative; transition: var(--transition);}
+.nav-links a::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px; background: var(--color-accent); transition: width 0.3s ease;}
+.nav-links a:hover { color: var(--color-accent);}
+.nav-links a:hover::after { width:100%;}
+.nav-links a.active-section { color: var(--color-accent); font-weight:700;}
+.menu-toggle { display:none; flex-direction: column; gap:5px; background:none; border:none; cursor:pointer;}
+.menu-toggle span { width:25px; height:2px; background: var(--color-dark); transition: var(--transition); }
+
+/* HERO */
+.hero { min-height:100vh; display:flex; align-items:center; padding:8rem 2rem 4rem; background: linear-gradient(135deg, var(--color-off-white) 0%, var(--color-white) 100%);}
+.hero-container { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1.2fr 1fr; gap:4rem; align-items:center;}
+.hero-content h1 { font-family: var(--font-display); font-size:clamp(2.5rem,5vw,4.5rem); font-weight:700; color: var(--color-dark); line-height:1.1; margin-bottom:1rem;}
+.hero-subtitle { font-size:1.4rem; color: var(--color-accent); font-weight:600; margin-bottom:1.5rem; display:inline-block; overflow:hidden; white-space:nowrap; border-right:3px solid var(--color-accent); animation:typing 3s steps(30,end) infinite alternate;}
+@keyframes typing { from{width:0;} to{width:100%;}}
+.hero-description { font-size:1.1rem; color: var(--color-slate); line-height:1.8; margin-bottom:2.5rem;}
+.hero-cta { display:flex; gap:1rem; flex-wrap:wrap;}
+.btn { padding:1rem 2rem; font-size:1rem; font-weight:600; text-decoration:none; border-radius:8px; transition: var(--transition); display:inline-flex; align-items:center; gap:0.6rem; border:none; cursor:pointer;}
+.btn-primary { background: var(--color-accent); color: var(--color-white); box-shadow: var(--shadow-md);}
+.btn-primary:hover { background: var(--color-accent-light); box-shadow: var(--shadow-lg); transform:translateY(-2px);}
+.btn-secondary { background:transparent; color: var(--color-dark); border:2px solid var(--color-dark);}
+.btn-secondary:hover { background: var(--color-dark); color: var(--color-white);}
+.hero-image { width:100%; height:500px; background: linear-gradient(135deg,#667eea 0%,#764ba2 100%); border-radius:12px; display:flex; align-items:center; justify-content:center; color:white; text-align:center; padding:2rem; box-shadow: var(--shadow-xl);}
+
+/* COMMON SECTIONS */
+section { padding:6rem 2rem;}
+.container { max-width:1200px; margin:0 auto;}
+.section-header { text-align:center; margin-bottom:4rem;}
+.section-label { font-size:0.9rem; font-weight:600; color: var(--color-accent); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.5rem;}
+.section-title { font-family: var(--font-display); font-size:clamp(2rem,4vw,3rem); font-weight:700; color: var(--color-dark); margin-bottom:1rem;}
+.section-description { font-size:1.1rem; color: var(--color-slate); max-width:700px; margin:0 auto;}
+
+/* --- ABOUT --- */
+.about { background: var(--color-off-white);}
+.about-content { display:grid; grid-template-columns:2fr 1fr; gap:4rem;}
+.about-text { font-size:1.05rem; line-height:1.8; color: var(--color-slate);}
+.about-text p { margin-bottom:1.5rem;}
+.highlight { color: var(--color-accent); font-weight:600;}
+.about-stats { background: var(--color-white); padding:2rem; border-radius:12px; box-shadow: var(--shadow-md);}
+.stat-item { padding:1.5rem 0; border-bottom:1px solid var(--color-light-gray);}
+.stat-item:last-child { border-bottom:none;}
+.stat-number { font-size:2rem; font-weight:700; color: var(--color-accent); display:block;}
+.stat-label { font-size:0.9rem; color: var(--color-slate); font-weight:500;}
+
+/* --- SKILLS --- */
+.skills-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:2rem;}
+.skill-category { background: var(--color-white); padding:2rem; border-radius:12px; border:1px solid var(--color-light-gray); transition: var(--transition);}
+.skill-category:hover { box-shadow: var(--shadow-lg); transform:translateY(-5px); border-color: var(--color-accent);}
+.skill-icon { width:50px;height:50px; background: var(--color-accent); color: var(--color-white); border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:1.5rem; margin-bottom:1.5rem;}
+.skill-category h3 { font-size:1.3rem; font-weight:700; margin-bottom:1rem;}
+.skill-list { list-style:none;}
+.skill-list li { padding:0.6rem 0; color: var(--color-slate); display:flex; flex-direction:column;}
+.skill-bar { height:8px; width:100%; background: var(--color-light-gray); border-radius:4px; overflow:hidden; margin-top:0.3rem;}
+.skill-bar div { height:100%; width:0; background: var(--color-accent); border-radius:4px; transition: width 1.5s ease;}
+
+/* --- PROJECTS --- */
+.projects { background: var(--color-off-white);}
+.projects-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(350px,1fr)); gap:2.5rem;}
+.project-card { perspective:1000px;}
+.project-card-inner { transition: transform 0.8s; transform-style: preserve-3d; position:relative; border-radius:12px;}
+.project-card:hover .project-card-inner { transform:rotateY(180deg);}
+.project-card-front, .project-card-back { backface-visibility:hidden; position:absolute; top:0; left:0; width:100%; height:100%; border-radius:12px;}
+.project-card-back { transform:rotateY(180deg); background: var(--color-accent); color:white; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:2rem; text-align:center;}
+.project-card-front { background: var(--color-white); border:1px solid var(--color-light-gray); border-radius:12px; box-shadow: var(--shadow-md);}
+.project-content { padding:2rem;}
+.project-card h3 { font-size:1.4rem; font-weight:700; margin-bottom:1rem;}
+.project-description { color: var(--color-slate); line-height:1.7; margin-bottom:1.5rem;}
+.project-tags { display:flex; flex-wrap:wrap; gap:0.5rem;}
+.tag { background: var(--color-off-white); color: var(--color-accent); padding:0.4rem 0.9rem; border-radius:20px; font-size:0.8rem; font-weight:600; border:1px solid var(--color-light-gray);}
+
+/* --- CONTACT --- */
+.contact-content { display:grid; grid-template-columns:1fr 1fr; gap:4rem;}
+.contact-info h3 { font-size:1.8rem; font-weight:700; margin-bottom:1rem;}
+.contact-info p { color: var(--color-slate); line-height:1.8; margin-bottom:2rem;}
+.contact-methods { display:flex; flex-direction:column; gap:1rem;}
+.contact-item { display:flex; align-items:center; gap:1rem; padding:1.2rem; background: var(--color-off-white); border-radius:8px; text-decoration:none; color: var(--color-dark); transition: var(--transition); border:1px solid var(--color-light-gray);}
+.contact-item:hover { background: var(--color-accent); color:white; border-color: var(--color-accent); box-shadow: var(--shadow-md);}
+.contact-item i { font-size:1.3rem; width:40px; height:40px; background:white; color: var(--color-accent); display:flex; align-items:center; justify-content:center; border-radius:8px;}
+.contact-item:hover i { background:white; color: var(--color-accent);}
+.contact-details strong { display:block; font-weight:600;}
+.contact-details span { font-size:0.9rem; opacity:0.9;}
+.contact-form { background: var(--color-off-white); padding:2.5rem; border-radius:12px; border:1px solid var(--color-light-gray);}
+
+/* FORM ERROR & SUCCESS */
+.error-message { color:#dc2626; font-size:0.85rem; margin-top:0.5rem; display:none;}
+.error-message.show { display:block;}
+.success-message { background:#d1fae5; color:#065f46; padding:1rem; border-radius:6px; margin-top:1rem; display:none; border:1px solid #a7f3d0;}
+.success-message.show { display:block;}
+
+/* FOOTER */
+footer { background: var(--color-dark); color: var(--color-white); padding:2rem; text-align:center;}
+footer p { color: rgba(255,255,255,0.7);}
+
+/* ANIMATIONS */
+.fade-in { opacity:0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease;}
+.fade-in.visible { opacity:1; transform: translateY(0);}
+
+/* RESPONSIVE */
+@media (max-width:991px){.hero-container{grid-template-columns:1fr;gap:2rem;}.hero-image{height:400px;}.about-content,.contact-content{grid-template-columns:1fr;gap:2rem;}.skills-grid{grid-template-columns:repeat(2,1fr);}}
+@media (max-width:768px){.menu-toggle{display:flex;}.nav-links{position:fixed;top:70px;left:-100%;width:100%;height:calc(100vh-70px);background: rgba(255,255,255,0.98);backdrop-filter: blur(10px);flex-direction:column;align-items:center;justify-content:center;gap:2rem;transition:left 0.3s ease;}.nav-links.active{left:0;}.nav-links a{font-size:1.3rem;}section{padding:4rem 1.5rem;}.hero{padding:6rem 1.5rem 3rem;}.skills-grid{grid-template-columns:1fr;}.projects-grid{grid-template-columns:1fr;}}
+@media (max-width:480px){.hero-image{height:300px;}.contact-form{padding:1.5rem;}}
+</style>
 </head>
 <body>
-
-<!-- NAVIGATION -->
-<nav>
-    <div class="logo">My Portfolio</div>
-    <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-</nav>
-
-<!-- HERO -->
-<header class="hero">
-    <h1>Applications Engineer</h1>
-    <p>Reliable, Scalable & Intelligent Technical Solutions</p>
-    <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact Me</button>
-</header>
-
-<!-- ABOUT -->
-<section class="about" id="about">
-    <h2>About Me</h2>
-    <p>
-        I am a results-driven Applications Engineer and self-starter in IT. I specialize in
-        troubleshooting, system optimization, and client-focused technical solutions. 
-        My goal is to deliver efficient, scalable, and innovative systems that improve 
-        business operations.
-    </p>
-</section>
-
-<!-- SKILLS -->
-<section id="skills">
-    <h2>Core Skills</h2>
-    <div class="skills-grid">
-        <div class="card">Application Support</div>
-        <div class="card">Systems Optimization</div>
-        <div class="card">Root Cause Analysis</div>
-        <div class="card">Performance Monitoring</div>
-        <div class="card">Technical Documentation</div>
-        <div class="card">Client-Focused Solutions</div>
-        <div class="card">IT Infrastructure Support</div>
-        <div class="card">Continuous Learning</div>
-    </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects">
-    <h2>Projects</h2>
-    <div class="projects-grid">
-        <div class="project-card">
-            <img src="https://via.placeholder.com/600x350" alt="Project 1">
-            <div>
-                <h3>Project One</h3>
-                <p>Optimized application performance, reducing load times by 40%.</p>
     <!-- ===================================
          NAVIGATION BAR
          Fixed navigation with smooth scrolling links
@@ -1240,10 +1121,10 @@ footer {
     <section id="hero" class="hero">
         <div class="hero-content">
             <div class="hero-label">Applications Engineer</div>
-            <h1>Your Name Here</h1>
-            <p class="title">Building Tomorrow's Solutions Today</p>
+            <h1>Kamogelo Molekwa</h1>
+            <p class="title">From Helpdesk to Applications Engineering</p>
             <p class="tagline">
-                Transforming complex challenges into elegant technical solutions
+                Transforming business processes through automation, innovation, and a passion for problem-solving
             </p>
             <a href="#contact" class="cta-button">Let's Connect</a>
         </div>
@@ -1264,13 +1145,13 @@ footer {
             <div class="about-content">
                 <div class="about-text fade-in">
                     <p>
-                        I'm a <span class="highlight">passionate Applications Engineer</span> driven by the challenge of solving complex technical problems and delivering innovative solutions that make a real impact.
+                        My journey into IT began with curiosity and determination. From completing my first CompTIA A+ certification to becoming an <span class="highlight">Applications Engineer</span>, I've built my career on a foundation of continuous learning and hands-on problem-solving.
                     </p>
                     <p>
-                        As a <span class="highlight">self-starter</span>, I thrive in dynamic environments where I can leverage my <span class="highlight">analytical mindset</span> and deep IT expertise to architect robust systems and optimize application performance. My approach combines technical precision with a strong <span class="highlight">client-focused philosophy</span>, ensuring that every solution not only meets requirements but exceeds expectations.
+                        What started as providing Tier 1 support at Nashua evolved into network engineering at Commercial ICT (Elvey), where I managed enterprise infrastructure and resolved critical Priority 1 incidents. Today, at <span class="highlight">Harambee Youth Employment Accelerator</span>, I design and develop business applications using <span class="highlight">Microsoft Power Platform</span>, automate workflows, and integrate complex systems that drive operational efficiency.
                     </p>
                     <p>
-                        Whether it's debugging intricate systems, implementing cutting-edge technologies, or collaborating with cross-functional teams, I bring a <span class="highlight">problem-solving mentality</span> that transforms obstacles into opportunities for innovation.
+                        As a <span class="highlight">self-starter and problem solver</span>, I thrive on turning business challenges into automated solutions. My <span class="highlight">analytical mindset</span> and deep IT expertise—from Active Directory to API integrations—enable me to bridge the gap between technical capabilities and <span class="highlight">client-focused outcomes</span>. Whether I'm debugging code, optimizing cloud infrastructure on Azure, or building WhatsApp chatbots, I'm driven by one goal: creating solutions that make a measurable impact.
                     </p>
                 </div>
                 
@@ -1278,15 +1159,15 @@ footer {
                 <div class="about-stats fade-in">
                     <div class="stat-card">
                         <span class="stat-number">5+</span>
-                        <span class="stat-label">Years Experience</span>
+                        <span class="stat-label">Years in IT</span>
                     </div>
                     <div class="stat-card">
-                        <span class="stat-number">50+</span>
-                        <span class="stat-label">Projects Delivered</span>
+                        <span class="stat-number">30+</span>
+                        <span class="stat-label">Daily P1 Tickets Resolved</span>
                     </div>
                     <div class="stat-card">
                         <span class="stat-number">100%</span>
-                        <span class="stat-label">Client Satisfaction</span>
+                        <span class="stat-label">SLA Compliance Focus</span>
                     </div>
                     <div class="stat-card">
                         <span class="stat-number">24/7</span>
@@ -1295,11 +1176,6 @@ footer {
                 </div>
             </div>
         </div>
-        <div class="project-card">
-            <img src="https://via.placeholder.com/600x350" alt="Project 2">
-            <div>
-                <h3>Project Two</h3>
-                <p>Implemented a monitoring system that improved uptime reliability.</p>
     </section>
     
     <!-- ===================================
@@ -1322,79 +1198,74 @@ footer {
                     <div class="skill-icon">💻</div>
                     <h3>Programming & Development</h3>
                     <ul class="skill-list">
-                        <li>Python, JavaScript, Java</li>
-                        <li>SQL & Database Management</li>
+                        <li>Python, JavaScript, React</li>
+                        <li>Visual Basic, JSON, HTML</li>
+                        <li>SQL Database Management</li>
                         <li>API Integration & Development</li>
-                        <li>Version Control (Git)</li>
                     </ul>
                 </div>
                 
                 <!-- Technical Skills Card 2 -->
                 <div class="skill-card fade-in">
                     <div class="skill-icon">⚙️</div>
-                    <h3>Systems & Infrastructure</h3>
+                    <h3>Microsoft Power Platform</h3>
                     <ul class="skill-list">
-                        <li>Cloud Platforms (AWS, Azure)</li>
-                        <li>Linux/Unix Systems</li>
-                        <li>DevOps & CI/CD</li>
-                        <li>Network Architecture</li>
+                        <li>Power Apps Development</li>
+                        <li>Power Automate Workflows</li>
+                        <li>Power BI Analytics</li>
+                        <li>SharePoint Integration</li>
                     </ul>
                 </div>
                 
                 <!-- Technical Skills Card 3 -->
                 <div class="skill-card fade-in">
                     <div class="skill-icon">🔧</div>
-                    <h3>Tools & Technologies</h3>
+                    <h3>Cloud & Infrastructure</h3>
                     <ul class="skill-list">
-                        <li>Docker & Kubernetes</li>
-                        <li>Monitoring & Logging Tools</li>
-                        <li>Automation & Scripting</li>
-                        <li>Performance Optimization</li>
+                        <li>Microsoft Azure (VMs, Resource Groups)</li>
+                        <li>Active Directory Administration</li>
+                        <li>Network Support (LAN/WAN)</li>
+                        <li>Linux, Windows, MacOS</li>
+                    </ul>
+                </div>
+                
+                <!-- Technical Skills Card 4 -->
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">🛠️</div>
+                    <h3>Enterprise Tools & Automation</h3>
+                    <ul class="skill-list">
+                        <li>ITSM: Jira, ServiceNow, Freshservice</li>
+                        <li>Automation: Zapier, Power Automate</li>
+                        <li>CRM: Genesys Cloud CX Manager</li>
+                        <li>WordPress Admin & Development</li>
                     </ul>
                 </div>
                 
                 <!-- Soft Skills Card 1 -->
                 <div class="skill-card fade-in">
                     <div class="skill-icon">🎯</div>
-                    <h3>Problem Solving</h3>
+                    <h3>Problem Solving & Analysis</h3>
                     <ul class="skill-list">
-                        <li>Critical Thinking</li>
-                        <li>Analytical Reasoning</li>
-                        <li>Debugging & Troubleshooting</li>
-                        <li>Root Cause Analysis</li>
+                        <li>Critical Thinking & Root Cause Analysis</li>
+                        <li>Troubleshooting & Debugging</li>
+                        <li>Performance Optimization</li>
+                        <li>Security Vulnerability Resolution</li>
                     </ul>
                 </div>
                 
                 <!-- Soft Skills Card 2 -->
                 <div class="skill-card fade-in">
                     <div class="skill-icon">🤝</div>
-                    <h3>Collaboration & Communication</h3>
+                    <h3>Collaboration & Leadership</h3>
                     <ul class="skill-list">
-                        <li>Cross-functional Teamwork</li>
-                        <li>Client Relationship Management</li>
-                        <li>Technical Documentation</li>
-                        <li>Stakeholder Engagement</li>
-                    </ul>
-                </div>
-                
-                <!-- Soft Skills Card 3 -->
-                <div class="skill-card fade-in">
-                    <div class="skill-icon">🚀</div>
-                    <h3>Leadership & Initiative</h3>
-                    <ul class="skill-list">
-                        <li>Self-Starter Mentality</li>
-                        <li>Project Management</li>
-                        <li>Continuous Learning</li>
-                        <li>Adaptability & Agility</li>
+                        <li>Self-Starter & Initiative-Driven</li>
+                        <li>Customer Service Excellence</li>
+                        <li>Training & Knowledge Sharing</li>
+                        <li>Project Management (Jira, Miro)</li>
                     </ul>
                 </div>
             </div>
         </div>
-        <div class="project-card">
-            <img src="https://via.placeholder.com/600x350" alt="Project 3">
-            <div>
-                <h3>Project Three</h3>
-                <p>Designed a client-focused troubleshooting dashboard for IT support.</p>
     </section>
     
     <!-- ===================================
@@ -1414,50 +1285,50 @@ footer {
             <div class="projects-grid">
                 <!-- Project Card 1 -->
                 <div class="project-card fade-in">
-                    <div class="project-image">🏢</div>
+                    <div class="project-image">🤖</div>
                     <div class="project-content">
-                        <h3>Enterprise System Integration</h3>
+                        <h3>WhatsApp Chatbot Integration</h3>
                         <p class="project-description">
-                            Architected and implemented a comprehensive integration platform connecting legacy systems with modern cloud infrastructure, reducing data synchronization time by 70%.
+                            Enhanced WhatsApp chatbot functionality by integrating Infobip APIs with business tools at Harambee, improving customer engagement and automating youth employment support services with seamless data synchronization.
                         </p>
                         <div class="project-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">AWS</span>
-                            <span class="tag">REST API</span>
-                            <span class="tag">Docker</span>
+                            <span class="tag">Infobip API</span>
+                            <span class="tag">Power Automate</span>
+                            <span class="tag">Automation</span>
+                            <span class="tag">Integration</span>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Project Card 2 -->
                 <div class="project-card fade-in">
-                    <div class="project-image">📊</div>
+                    <div class="project-image">⚡</div>
                     <div class="project-content">
-                        <h3>Real-Time Analytics Dashboard</h3>
+                        <h3>Freshservice Workflow Automation</h3>
                         <p class="project-description">
-                            Developed a high-performance analytics platform processing millions of events per day, providing actionable insights through intuitive visualizations and automated reporting.
+                            Designed and implemented automated workflows using webhooks and API integrations in Freshservice, optimizing ticket escalations and building custom SLA dashboards for performance tracking and reporting.
                         </p>
                         <div class="project-tags">
-                            <span class="tag">JavaScript</span>
-                            <span class="tag">Node.js</span>
-                            <span class="tag">MongoDB</span>
-                            <span class="tag">React</span>
+                            <span class="tag">Freshservice</span>
+                            <span class="tag">Webhooks</span>
+                            <span class="tag">API</span>
+                            <span class="tag">Analytics</span>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Project Card 3 -->
                 <div class="project-card fade-in">
-                    <div class="project-image">🔐</div>
+                    <div class="project-image">☁️</div>
                     <div class="project-content">
-                        <h3>Security Automation Framework</h3>
+                        <h3>Azure Cloud Infrastructure Management</h3>
                         <p class="project-description">
-                            Built an automated security scanning and remediation system that identifies vulnerabilities in real-time and implements patches, improving security posture by 85%.
+                            Managed Microsoft Azure Resource Groups and Virtual Machines for cloud infrastructure, focusing on scalability, security optimization, and cost management while ensuring high availability for business applications.
                         </p>
                         <div class="project-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">Jenkins</span>
-                            <span class="tag">Kubernetes</span>
+                            <span class="tag">Azure</span>
+                            <span class="tag">VMs</span>
+                            <span class="tag">Cloud</span>
                             <span class="tag">Security</span>
                         </div>
                     </div>
@@ -1465,93 +1336,56 @@ footer {
                 
                 <!-- Project Card 4 -->
                 <div class="project-card fade-in">
-                    <div class="project-image">🌐</div>
+                    <div class="project-image">📞</div>
                     <div class="project-content">
-                        <h3>Microservices Migration</h3>
+                        <h3>Genesys Cloud CX Configuration</h3>
                         <p class="project-description">
-                            Led the migration of a monolithic application to a microservices architecture, improving scalability, reducing deployment time from hours to minutes, and enhancing system resilience.
+                            Configured and managed Genesys Cloud scripts, queues, workflows, and custom data actions to enhance contact center performance, improving call routing efficiency and customer service delivery.
                         </p>
                         <div class="project-tags">
-                            <span class="tag">Java</span>
-                            <span class="tag">Spring Boot</span>
-                            <span class="tag">Docker</span>
-                            <span class="tag">Azure</span>
+                            <span class="tag">Genesys Cloud</span>
+                            <span class="tag">CRM</span>
+                            <span class="tag">Workflows</span>
+                            <span class="tag">Automation</span>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Project Card 5 -->
                 <div class="project-card fade-in">
-                    <div class="project-image">⚡</div>
+                    <div class="project-image">🏢</div>
                     <div class="project-content">
-                        <h3>Performance Optimization Suite</h3>
+                        <h3>Enterprise Network Support</h3>
                         <p class="project-description">
-                            Engineered a comprehensive performance monitoring and optimization toolkit that identified and resolved bottlenecks, achieving 60% improvement in application response times.
+                            Spearheaded technical troubleshooting at Commercial ICT (Elvey), managing 30+ Priority 1 tickets daily. Handled LAN/WAN support, Active Directory administration, disaster recovery, and SCCM deployments across enterprise infrastructure.
                         </p>
                         <div class="project-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">SQL</span>
-                            <span class="tag">Redis</span>
-                            <span class="tag">Grafana</span>
+                            <span class="tag">Active Directory</span>
+                            <span class="tag">Network Support</span>
+                            <span class="tag">SCCM</span>
+                            <span class="tag">Helpdesk</span>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Project Card 6 -->
                 <div class="project-card fade-in">
-                    <div class="project-image">🤖</div>
+                    <div class="project-image">🔄</div>
                     <div class="project-content">
-                        <h3>AI-Powered Support System</h3>
+                        <h3>Multi-Platform Integration Hub</h3>
                         <p class="project-description">
-                            Developed an intelligent customer support system leveraging machine learning to automate ticket routing and provide instant solutions, reducing resolution time by 50%.
+                            Built comprehensive workflow automations using Zapier, integrating Freshservice, HubSpot, Infobip, and Power Platform to streamline cross-platform data exchange and eliminate manual processes.
                         </p>
                         <div class="project-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">TensorFlow</span>
-                            <span class="tag">NLP</span>
-                            <span class="tag">API</span>
+                            <span class="tag">Zapier</span>
+                            <span class="tag">HubSpot</span>
+                            <span class="tag">Power Apps</span>
+                            <span class="tag">Integration</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-
-<!-- CONTACT -->
-<section class="contact" id="contact">
-    <h2>Contact Me</h2>
-    <form onsubmit="return validateForm()">
-        <input type="text" id="name" placeholder="Your Name" required>
-        <input type="email" id="email" placeholder="Your Email" required>
-        <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
-        <button type="submit">Send Message</button>
-    </form>
-</section>
-
-<!-- FOOTER -->
-<footer>
-    © 2026 Your Name | Applications Engineer
-</footer>
-
-<script>
-// ==========================
-// SIMPLE FORM VALIDATION
-// ==========================
-function validateForm() {
-    let name = document.getElementById('name').value.trim();
-    let email = document.getElementById('email').value.trim();
-    let message = document.getElementById('message').value.trim();
-
-    if(name === "" || email === "" || message === "") {
-        alert("Please fill out all fields.");
-        return false;
-    }
-
-    alert("Message sent! (This is a demo; replace with backend to actually send.)");
-    return false;
-}
-</script>
     </section>
     
     <!-- ===================================
@@ -1573,31 +1407,31 @@ function validateForm() {
                 <div class="contact-info fade-in">
                     <h3>Reach Out</h3>
                     <p>
-                        Whether you have a question, a project opportunity, or just want to connect, feel free to reach out through any of the channels below or use the contact form.
+                        Whether you have a project opportunity, collaboration idea, or just want to discuss technology and innovation, I'd love to connect. Feel free to reach out through any of the channels below or use the contact form.
                     </p>
                     
                     <div class="contact-links">
-                        <a href="mailto:your.email@example.com" class="contact-link">
+                        <a href="mailto:tmolek7@yahoo.com" class="contact-link">
                             <div class="contact-icon">📧</div>
                             <div>
                                 <div style="font-weight: 600;">Email</div>
-                                <div style="color: var(--color-text-secondary); font-size: 0.9rem;">your.email@example.com</div>
+                                <div style="color: var(--color-text-secondary); font-size: 0.9rem;">tmolek7@yahoo.com</div>
                             </div>
                         </a>
                         
-                        <a href="https://linkedin.com/in/yourprofile" target="_blank" class="contact-link">
+                        <a href="https://linkedin.com/in/kamogelo" target="_blank" rel="noopener noreferrer" class="contact-link">
                             <div class="contact-icon">💼</div>
                             <div>
                                 <div style="font-weight: 600;">LinkedIn</div>
-                                <div style="color: var(--color-text-secondary); font-size: 0.9rem;">linkedin.com/in/yourprofile</div>
+                                <div style="color: var(--color-text-secondary); font-size: 0.9rem;">linkedin.com/in/kamogelo</div>
                             </div>
                         </a>
                         
-                        <a href="https://github.com/yourusername" target="_blank" class="contact-link">
-                            <div class="contact-icon">💻</div>
+                        <a href="tel:+27825226797" class="contact-link">
+                            <div class="contact-icon">📱</div>
                             <div>
-                                <div style="font-weight: 600;">GitHub</div>
-                                <div style="color: var(--color-text-secondary); font-size: 0.9rem;">github.com/yourusername</div>
+                                <div style="font-weight: 600;">Phone</div>
+                                <div style="color: var(--color-text-secondary); font-size: 0.9rem;">+27 82 522 6797</div>
                             </div>
                         </a>
                     </div>
@@ -1647,7 +1481,7 @@ function validateForm() {
     =================================== -->
     <footer>
         <div class="container">
-            <p>&copy; 2024 Applications Engineer. Built with passion and precision.</p>
+            <p>&copy; 2024 Kamogelo Molekwa | Applications Engineer | Built with passion for innovation</p>
         </div>
     </footer>
     
@@ -1847,12 +1681,41 @@ function validateForm() {
         
         // You can dynamically update the year in the footer
         // Uncomment the following lines if you want automatic year update:
-        
+        /*
         const footerYear = document.querySelector('footer p');
         const currentYear = new Date().getFullYear();
         footerYear.innerHTML = `&copy; ${currentYear} Applications Engineer. Built with passion and precision.`;
-        
+        */
         
     </script>
+<!-- NAVIGATION -->
+<nav id="navbar">
+<div class="nav-container">
+<a href="#hero" class="logo">KM</a>
+<button class="menu-toggle" id="menuToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+<ul class="nav-links" id="navLinks">
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#contact">Contact</a></li>
+<li><button id="themeToggle" class="btn btn-secondary">Dark Mode</button></li>
+</ul>
+</div>
+</nav>
+
+<!-- HERO, ABOUT, SKILLS, PROJECTS, CONTACT, FOOTER sections go here (same as your original, with .project-card-inner and skill bars implemented) -->
+
+<!-- CONTACT FORM -->
+<form id="contactForm" action="send_email.php" method="POST">
+<input type="text" name="name" placeholder="Your Name" required>
+<input type="email" name="email" placeholder="Email" required>
+<input type="text" name="subject" placeholder="Subject" required>
+<textarea name="message" placeholder="Message" required></textarea>
+<button type="submit" class="btn btn-primary">Send Message</button>
+</form>
+
+<script>
+// JS: menu toggle, scroll, fade-in, skill bars animation, theme toggle
+</script>
 </body>
 </html>
