@@ -128,6 +128,12 @@
             color: var(--text-primary);
             text-decoration: none;
         }
+
+        /* Add this: */
+.logo-bracket {
+    color: var(--electric-blue);  /* Change to any color you want */
+    opacity: 0.7;
+}
         
         .nav-links {
             display: flex;
@@ -797,7 +803,7 @@
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
-            <a href="#home" class="logo">&lt;/KM&gt;</a>
+            <a href="#home" class="logo"><span class="logo-bracket">&lt;</span>KM<span class="logo-bracket">/&gt;</span></a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#console">Console</a></li>
