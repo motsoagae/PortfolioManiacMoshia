@@ -129,7 +129,7 @@
             text-decoration: none;
         }
         .logo-bracket {
-    color: #00ff88;  /* Change to any color you want */
+    color: #00ff88;
     opacity: 0.7;
 }
         .nav-links {
@@ -294,7 +294,7 @@
         
         /* Section Styles */
         section {
-    padding: 2.5rem 2rem;   /* was 6rem */
+    padding: 2.5rem 2rem;
     position: relative;
     z-index: 1;
 }
@@ -335,12 +335,12 @@
         
         /* Hero Section */
         .hero {
-    min-height: auto;              /* remove full screen height */
+    min-height: auto;
     display: flex;
-    align-items: flex-start;       /* stop vertical centering */
+    align-items: flex-start;
     justify-content: center;
     text-align: center;
-    padding: 6rem 2rem 4rem;       /* top space under navbar */
+    padding: 6rem 2rem 4rem;
 }
 
         
@@ -412,6 +412,44 @@
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(37, 211, 102, 0.35);
         }
+
+        /* Metrics Section - NEW */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .metric-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all var(--transition-base);
+        }
+
+        .metric-card:hover {
+            border-color: var(--electric-blue);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.2);
+        }
+
+        .metric-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--electric-blue), var(--cyan-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
         
         /* Console Section */
         .console-terminal {
@@ -466,7 +504,6 @@
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
         }
         
-        /* UPDATED TOOL ICON STYLES - This is the key fix */
         .tool-icon {
             width: 48px;
             height: 48px;
@@ -482,21 +519,17 @@
             overflow: hidden;
         }
         
-        /* New styles for image-based icons */
         .tool-icon img {
             width: 100%;
             height: 100%;
             object-fit: contain;
             padding: 8px;
-            /* This ensures images don't touch the edges */
         }
         
-        /* For SVG logos that need white background */
         .tool-icon.white-bg {
             background: white;
         }
         
-        /* For logos that work better without gradient background */
         .tool-icon.no-gradient {
             background: rgba(255, 255, 255, 0.05);
         }
@@ -626,6 +659,12 @@
             justify-content: center;
             font-size: 3rem;
         }
+
+        .project-image img {
+            max-width: 80%;
+            max-height: 80%;
+            object-fit: contain;
+        }
         
         .project-content {
             padding: 1.5rem;
@@ -656,6 +695,91 @@
             color: var(--electric-blue-light);
             border: 1px solid rgba(59, 130, 246, 0.2);
             border-radius: 4px;
+        }
+
+        /* Contact Form - NEW */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-family: var(--font-display);
+            font-size: 0.9375rem;
+            transition: all var(--transition-base);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--electric-blue);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem 2rem;
+            background: var(--electric-blue);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all var(--transition-base);
+        }
+
+        .submit-btn:hover {
+            background: var(--electric-blue-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.35);
+        }
+
+        .form-message {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            display: none;
+        }
+
+        .form-message.success {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: var(--emerald-accent);
+        }
+
+        .form-message.error {
+            background: rgba(244, 63, 94, 0.1);
+            border: 1px solid rgba(244, 63, 94, 0.3);
+            color: var(--rose-accent);
         }
         
         /* Chatbot */
@@ -847,12 +971,10 @@
                 width: 180px;
             }
             
-            /* Show Explore Console button on mobile/tablet */
             .cta-button.primary {
                 display: inline-flex;
             }
             
-            /* Console terminal mobile fix */
             .console-terminal {
                 padding: 1rem;
                 font-size: 0.8125rem;
@@ -863,7 +985,6 @@
                 line-height: 1.6;
             }
             
-            /* Better mobile timeline layout */
             .timeline::before {
                 left: 8px;
             }
@@ -924,6 +1045,7 @@
                 <li><a href="#tools">Tools</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="search-container">
                 <div class="search-box">
@@ -950,6 +1072,7 @@
             <li><a href="#tools" class="mobile-link">Tools</a></li>
             <li><a href="#experience" class="mobile-link">Experience</a></li>
             <li><a href="#projects" class="mobile-link">Projects</a></li>
+            <li><a href="#contact" class="mobile-link">Contact</a></li>
         </ul>
     </div>
     
@@ -961,7 +1084,7 @@
             <p class="tagline">
                 Transforming business processes through automation, innovation, and enterprise-grade system design.
             </p>
-            <<div class="cta-group">
+            <div class="cta-group">
     <a href="#console" class="cta-button primary">
         <img src="https://raw.githubusercontent.com/motsoagae/motsoagae.github.io/refs/heads/main/iconlogs/terminal-window-fill.svg" 
              alt="Console logo" style="width:40px; height:40px; vertical-align: middle; margin-right: 8px;">
@@ -976,6 +1099,25 @@
     </a>
 </div>
 
+            <!-- Metrics Dashboard - NEW -->
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-number" data-target="40">0</div>
+                    <div class="metric-label">% Efficiency Gain</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number" data-target="30">0</div>
+                    <div class="metric-label">P1 Tickets Daily</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number" data-target="100">0</div>
+                    <div class="metric-label">% SLA Compliance</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number" data-target="5">0</div>
+                    <div class="metric-label">+ Years Experience</div>
+                </div>
+            </div>
         </div>
     </section>
     
@@ -1124,7 +1266,6 @@ LinkedIn: linkedin.com/in/kamogelo</span></pre>
                     <p>Enterprise Administration</p>
                 </div>
                 
-                <!-- EXAMPLE: Jira with custom logo -->
                 <div class="tool-card">
                     <div class="tool-icon white-bg">
                         <img src="https://raw.githubusercontent.com/motsoagae/motsoagae.github.io/refs/heads/main/iconlogs/jira-1.svg" alt="Jira logo">
@@ -1202,29 +1343,30 @@ LinkedIn: linkedin.com/in/kamogelo</span></pre>
                 </p>
             </div>
             
-            <div class="project-card" data-tags="infobip api power-automate automation whatsapp chatbot">
-    <div class="project-image">
-        <img src="https://raw.githubusercontent.com/motsoagae/motsoagae.github.io/refs/heads/main/iconlogs/WhatsApp.svg" 
-             alt="WhatsApp" style="width: 80px; height: 80px;">
-    </div>
-    <div class="project-content">
-        <h3>WhatsApp Chatbot Integration</h3>
-        <p class="project-description">
-            Enhanced WhatsApp chatbot using Infobip APIs integrated with Power Automate, 
-            reducing response time by 40% and automating youth employment support services.
-        </p>
-        <div class="project-tags">
-            <span class="tag">Infobip API</span>
-            <span class="tag">Power Automate</span>
-            <span class="tag">WhatsApp</span>
-        </div>
-    </div>
-</div>
+            <div class="projects-grid">
+                <div class="project-card" data-tags="infobip api power-automate automation whatsapp chatbot">
+                    <div class="project-image">
+                        <img src="https://raw.githubusercontent.com/motsoagae/motsoagae.github.io/refs/heads/main/iconlogs/WhatsApp.svg" 
+                             alt="WhatsApp">
+                    </div>
+                    <div class="project-content">
+                        <h3>WhatsApp Chatbot Integration</h3>
+                        <p class="project-description">
+                            Enhanced WhatsApp chatbot using Infobip APIs integrated with Power Automate, 
+                            reducing response time by 40% and automating youth employment support services.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Infobip API</span>
+                            <span class="tag">Power Automate</span>
+                            <span class="tag">WhatsApp</span>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="project-card" data-tags="freshservice webhooks api automation">
-    <div class="project-image">
-        <img src="https://raw.githubusercontent.com/motsoagae/PortfolioManiacMoshia/refs/heads/main/iconlogs/freshservice-vector-logo.svg" 
-             alt="Freshservice" style="width: 160px; height: 160px;">
+                <div class="project-card" data-tags="freshservice webhooks api automation">
+                    <div class="project-image">
+                        <img src="https://raw.githubusercontent.com/motsoagae/PortfolioManiacMoshia/refs/heads/main/iconlogs/freshservice-vector-logo.svg" 
+                             alt="Freshservice">
                     </div>
                     <div class="project-content">
                         <h3>Freshservice Automation</h3>
@@ -1241,9 +1383,9 @@ LinkedIn: linkedin.com/in/kamogelo</span></pre>
                 </div>
 
                 <div class="project-card" data-tags="azure cloud infrastructure vms">
-    <div class="project-image">
-        <img src="https://raw.githubusercontent.com/motsoagae/PortfolioManiacMoshia/refs/heads/main/iconlogs/app-service-plans.svg" 
-             alt="Freshservice" style="width: 80px; height: 80px;">
+                    <div class="project-image">
+                        <img src="https://raw.githubusercontent.com/motsoagae/PortfolioManiacMoshia/refs/heads/main/iconlogs/app-service-plans.svg" 
+                             alt="Azure">
                     </div>
                     <div class="project-content">
                         <h3>Azure Infrastructure</h3>
@@ -1260,9 +1402,9 @@ LinkedIn: linkedin.com/in/kamogelo</span></pre>
                 </div>
 
                 <div class="project-card" data-tags="genesys cloud crm workflows">
-    <div class="project-image">
-        <img src="https://raw.githubusercontent.com/motsoagae/PortfolioManiacMoshia/refs/heads/main/iconlogs/external-id.svg" 
-             alt="Freshservice" style="width: 80px; height: 80px;">
+                    <div class="project-image">
+                        <img src="https://raw.githubusercontent.com/motsoagae/PortfolioManiacMoshia/refs/heads/main/iconlogs/external-id.svg" 
+                             alt="Genesys">
                     </div>
                     <div class="project-content">
                         <h3>Genesys Cloud CX</h3>
@@ -1279,9 +1421,9 @@ LinkedIn: linkedin.com/in/kamogelo</span></pre>
                 </div>
 
                 <div class="project-card" data-tags="zapier integration hubspot power-platform">
-    <div class="project-image">
-        <img src="https://raw.githubusercontent.com/motsoagae/PortfolioManiacMoshia/refs/heads/main/iconlogs/ComposeMultiplatform.svg" 
-             alt="Freshservice" style="width: 80px; height: 80px;">
+                    <div class="project-image">
+                        <img src="https://raw.githubusercontent.com/motsoagae/PortfolioManiacMoshia/refs/heads/main/iconlogs/ComposeMultiplatform.svg" 
+                             alt="Integration">
                     </div>
                     <div class="project-content">
                         <h3>Multi-Platform Integration</h3>
@@ -1298,9 +1440,9 @@ LinkedIn: linkedin.com/in/kamogelo</span></pre>
                 </div>
 
                 <div class="project-card" data-tags="active-directory network sccm helpdesk">
-    <div class="project-image">
-        <img src="https://raw.githubusercontent.com/motsoagae/PortfolioManiacMoshia/refs/heads/main/iconlogs/azure-network-function-manager.svg" 
-             alt="Freshservice" style="width: 80px; height: 80px;">
+                    <div class="project-image">
+                        <img src="https://raw.githubusercontent.com/motsoagae/PortfolioManiacMoshia/refs/heads/main/iconlogs/azure-network-function-manager.svg" 
+                             alt="Network">
                     </div>
                     <div class="project-content">
                         <h3>Enterprise Network Support</h3>
@@ -1319,18 +1461,57 @@ LinkedIn: linkedin.com/in/kamogelo</span></pre>
         </div>
     </section>
     
+    <!-- Contact Section - NEW -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Get In Touch</div>
+                <h2 class="section-title">Contact Me</h2>
+                <p class="section-description">
+                    Have a project in mind? Let's discuss how automation can transform your business
+                </p>
+            </div>
+            
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Send Message</button>
+                
+                <div class="form-message" id="formMessage"></div>
+            </form>
+        </div>
+    </section>
+    
     <!-- Footer -->
-<footer>
-    <div class="container">
-        <p>&copy; <span id="yearRange"></span> Kamogelo Molekwa | Applications Engineer | Built with precision and passion</p>
-    </div>
-</footer>
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="yearRange"></span> Kamogelo Molekwa | Applications Engineer | Built with precision and passion</p>
+        </div>
+    </footer>
 
     
     <!-- Chatbot -->
     <button class="chatbot-toggle" id="chatbotToggle">
-  <img src="https://raw.githubusercontent.com/motsoagae/motsoagae.github.io/refs/heads/main/iconlogs/bOT.svg" alt="Jira logo" style="width:45px; height:50px;">
-</button>
+        <img src="https://raw.githubusercontent.com/motsoagae/motsoagae.github.io/refs/heads/main/iconlogs/bOT.svg" alt="Chatbot" style="width:45px; height:50px;">
+    </button>
 
     <div class="chatbot-window" id="chatbotWindow">
         <div class="chatbot-header">
@@ -1388,6 +1569,74 @@ LinkedIn: linkedin.com/in/kamogelo</span></pre>
             link.addEventListener('click', () => {
                 toggleMenu();
             });
+        });
+
+        // Animated Counter - NEW
+        const animateCounter = (element) => {
+            const target = parseInt(element.getAttribute('data-target'));
+            const duration = 2000;
+            const increment = target / (duration / 16);
+            let current = 0;
+
+            const updateCounter = () => {
+                current += increment;
+                if (current < target) {
+                    element.textContent = Math.floor(current);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = target;
+                }
+            };
+
+            updateCounter();
+        };
+
+        // Trigger counter animation when in viewport
+        const counters = document.querySelectorAll('.metric-number');
+        const observerOptions = {
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && entry.target.textContent === '0') {
+                    animateCounter(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        counters.forEach(counter => observer.observe(counter));
+        
+        // Contact Form - NEW
+        const contactForm = document.getElementById('contactForm');
+        const formMessage = document.getElementById('formMessage');
+
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(contactForm);
+            const data = Object.fromEntries(formData);
+            
+            // Show loading state
+            const submitBtn = contactForm.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            // Simulate sending (replace with actual email service later)
+            setTimeout(() => {
+                formMessage.textContent = 'Message sent successfully! I\'ll get back to you soon.';
+                formMessage.className = 'form-message success';
+                formMessage.style.display = 'block';
+                
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+                contactForm.reset();
+                
+                setTimeout(() => {
+                    formMessage.style.display = 'none';
+                }, 5000);
+            }, 1000);
         });
         
         // Search functionality
@@ -1507,7 +1756,7 @@ LinkedIn: linkedin.com/in/kamogelo</span></pre>
             });
         });
 
-          // Auto update footer year range
+        // Auto update footer year range
         const startYear = 2022;
         const currentYear = new Date().getFullYear();
 
