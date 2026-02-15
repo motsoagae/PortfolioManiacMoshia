@@ -1111,7 +1111,10 @@
     </a>
 
     <!-- NEW: Resume Download Button -->
-    <a href="#" id="downloadResume" class="cta-button resume">
+    <a href="https://drive.google.com/uc?export=download&id=1mYdGHOJ8UITqquHFQ2JXCeUwNFgkg748" 
+       download="Kamogelo_Molekwa_Resume.docx" 
+       target="_blank" 
+       class="cta-button resume">
         📄 Download Resume
     </a>
 </div>
@@ -1176,7 +1179,7 @@
 <span class="output">Open for opportunities and collaborations</span>
 
 <span class="prompt">> contact</span>
-<span class="output">Email: tmolek7@yahoo.com
+<span class="output">Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="20544d4f4c454b17605941484f4f0e434f4d">[email&#160;protected]</a>
 Phone: +27 82 522 6797
 LinkedIn: linkedin.com/in/kamogelo</span></pre>
             </div>
@@ -1555,7 +1558,7 @@ LinkedIn: linkedin.com/in/kamogelo</span></pre>
         </div>
     </div>
     
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Navigation scroll effect
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
@@ -1623,102 +1626,6 @@ LinkedIn: linkedin.com/in/kamogelo</span></pre>
         }, observerOptions);
 
         counters.forEach(counter => observer.observe(counter));
-
-        // Resume Download Function
-        document.getElementById('downloadResume').addEventListener('click', (e) => {
-            e.preventDefault();
-            
-            // Create resume content
-            const resumeData = {
-                name: "Kamogelo Molekwa",
-                title: "Applications Engineer | Automation Architect",
-                contact: {
-                    email: "tmolek7@yahoo.com",
-                    phone: "+27 82 522 6797",
-                    linkedin: "linkedin.com/in/kamogelo"
-                },
-                summary: "Applications Engineer with 5+ years of experience specializing in enterprise automation, API integrations, and cloud infrastructure. Proven track record of improving workflow efficiency by 40% through innovative Power Platform solutions and WhatsApp chatbot integration.",
-                experience: [
-                    {
-                        role: "Applications Engineer",
-                        company: "Harambee Youth Employment Accelerator",
-                        period: "2022 - Present",
-                        achievements: [
-                            "Achieved 40% workflow efficiency improvement through Power Automate and API integrations",
-                            "Integrated Infobip APIs for WhatsApp chatbot automation serving thousands of users",
-                            "Configured Genesys Cloud CX workflows and custom data actions",
-                            "Managed Azure infrastructure including VMs and Resource Groups"
-                        ]
-                    },
-                    {
-                        role: "Network Engineer",
-                        company: "Commercial ICT (Elvey)",
-                        period: "2020 - 2022",
-                        achievements: [
-                            "Managed 30+ Priority 1 tickets daily with 100% SLA compliance",
-                            "Handled Active Directory administration and disaster recovery",
-                            "Deployed SCCM solutions across enterprise infrastructure",
-                            "Supported enterprise LAN/WAN operations"
-                        ]
-                    },
-                    {
-                        role: "IT Support Specialist",
-                        company: "Nashua",
-                        period: "2018 - 2020",
-                        achievements: [
-                            "Provided Tier 1 technical support and endpoint management",
-                            "Earned CompTIA A+ certification",
-                            "Built foundation in IT infrastructure and troubleshooting"
-                        ]
-                    }
-                ],
-                skills: {
-                    automation: ["Power Platform", "Power Automate", "Zapier", "Python"],
-                    cloud: ["Azure", "Resource Groups", "Virtual Machines"],
-                    apis: ["Infobip API", "REST APIs", "Webhooks"],
-                    platforms: ["Genesys Cloud CX", "Freshservice", "HubSpot"],
-                    databases: ["SQL", "Database Management"],
-                    networking: ["Active Directory", "SCCM", "LAN/WAN"],
-                    development: ["React", "JavaScript", "HTML/CSS"]
-                }
-            };
-
-            // Generate text resume
-            let resumeText = `${resumeData.name}\n${resumeData.title}\n\n`;
-            resumeText += `CONTACT\n`;
-            resumeText += `Email: ${resumeData.contact.email}\n`;
-            resumeText += `Phone: ${resumeData.contact.phone}\n`;
-            resumeText += `LinkedIn: ${resumeData.contact.linkedin}\n\n`;
-            resumeText += `SUMMARY\n${resumeData.summary}\n\n`;
-            resumeText += `EXPERIENCE\n\n`;
-            
-            resumeData.experience.forEach(exp => {
-                resumeText += `${exp.role} | ${exp.company}\n${exp.period}\n`;
-                exp.achievements.forEach(achievement => {
-                    resumeText += `• ${achievement}\n`;
-                });
-                resumeText += `\n`;
-            });
-
-            resumeText += `TECHNICAL SKILLS\n`;
-            Object.keys(resumeData.skills).forEach(category => {
-                resumeText += `${category.charAt(0).toUpperCase() + category.slice(1)}: ${resumeData.skills[category].join(', ')}\n`;
-            });
-
-            // Create and download file
-            const blob = new Blob([resumeText], { type: 'text/plain' });
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'Kamogelo_Molekwa_Resume.txt';
-            document.body.appendChild(a);
-            a.click();
-            window.URL.revokeObjectURL(url);
-            document.body.removeChild(a);
-
-            // Show success message
-            alert('Resume downloaded successfully!');
-        });
         
         // Contact Form
         const contactForm = document.getElementById('contactForm');
@@ -1871,12 +1778,4 @@ LinkedIn: linkedin.com/in/kamogelo</span></pre>
 
         // Auto update footer year range
         const startYear = 2022;
-        const currentYear = new Date().getFullYear();
-
-        document.getElementById('yearRange').textContent =
-            currentYear > startYear
-                ? `${startYear}–${currentYear}`
-                : startYear;
-    </script>
-</body>
-</html>
+        const currentYear = new
