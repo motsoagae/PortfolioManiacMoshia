@@ -1778,4 +1778,12 @@ LinkedIn: linkedin.com/in/kamogelo</span></pre>
 
         // Auto update footer year range
         const startYear = 2022;
-        const currentYear = new
+        const currentYear = new Date().getFullYear();
+
+        document.getElementById('yearRange').textContent =
+            currentYear > startYear
+                ? `${startYear}–${currentYear}`
+                : startYear;
+    </script>
+</body>
+</html>
